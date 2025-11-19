@@ -20,6 +20,10 @@ export function WhatWeCreated() {
       title: t.whatWeCreated.feature3Title,
       description: t.whatWeCreated.feature3Desc,
     },
+    {
+      title: t.whatWeCreated.feature4Title,
+      description: t.whatWeCreated.feature4Desc,
+    },
   ];
 
   return (
@@ -39,7 +43,7 @@ export function WhatWeCreated() {
           {t.whatWeCreated.title}
         </h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 max-w-6xl mx-auto">
           {features.map((feature, index) => (
             <Card 
               key={index}
