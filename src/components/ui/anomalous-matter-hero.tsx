@@ -168,16 +168,16 @@ export function AnomalousMatterHero({
       {/* Dark orange gradient - multiple layers with different shapes and positions */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Center ellipse */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[600px] rounded-full bg-gradient-radial from-orange-600/12 via-orange-800/7 via-orange-900/4 to-transparent blur-[140px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[600px] rounded-full bg-gradient-radial from-orange-600/24 via-orange-800/14 via-orange-900/8 to-transparent blur-[140px]" />
         
         {/* Top left accent */}
-        <div className="absolute -top-20 -left-20 w-[600px] h-[800px] rounded-full bg-gradient-radial from-orange-500/8 via-orange-700/5 to-transparent blur-[120px]" />
+        <div className="absolute -top-20 -left-20 w-[600px] h-[800px] rounded-full bg-gradient-radial from-orange-500/16 via-orange-700/10 to-transparent blur-[120px]" />
         
         {/* Bottom right accent */}
-        <div className="absolute -bottom-40 -right-40 w-[700px] h-[700px] rounded-full bg-gradient-radial from-orange-600/10 via-orange-800/6 to-transparent blur-[130px]" />
+        <div className="absolute -bottom-40 -right-40 w-[700px] h-[700px] rounded-full bg-gradient-radial from-orange-600/20 via-orange-800/12 to-transparent blur-[130px]" />
         
         {/* Middle right accent */}
-        <div className="absolute top-1/3 -right-20 w-[500px] h-[900px] rounded-full bg-gradient-radial from-orange-500/7 via-orange-700/4 to-transparent blur-[110px]" />
+        <div className="absolute top-1/3 -right-20 w-[500px] h-[900px] rounded-full bg-gradient-radial from-orange-500/14 via-orange-700/8 to-transparent blur-[110px]" />
       </div>
       <div className="flex flex-col md:flex-row items-center justify-between h-full">
         {/* Left side - Text content */}
