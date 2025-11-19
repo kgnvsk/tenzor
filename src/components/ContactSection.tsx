@@ -42,7 +42,7 @@ export function ContactSection() {
                   key={index}
                   href={button.link}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener"
                   className={`group relative flex items-center justify-center gap-3 w-full sm:w-48 h-48 rounded-full ${button.bgColor} ${button.hoverColor} transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl`}
                 >
                   <div className="flex flex-col items-center gap-2">
