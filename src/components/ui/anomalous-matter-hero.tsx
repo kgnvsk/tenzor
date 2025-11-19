@@ -166,7 +166,7 @@ export function AnomalousMatterHero({
 }) {
   return <section role="banner" className="relative w-full h-screen bg-background text-foreground overflow-hidden">
       {/* Dark orange gradient - multiple layers with different shapes and positions */}
-      <div className="absolute top-0 left-0 right-0 bottom-[-100vh] pointer-events-none overflow-visible">
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Center ellipse */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[600px] rounded-full bg-gradient-radial from-orange-600/24 via-orange-800/14 via-orange-900/8 to-transparent blur-[140px]" />
         
