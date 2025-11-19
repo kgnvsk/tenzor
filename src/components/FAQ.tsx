@@ -1,33 +1,38 @@
 import { FAQ1 } from "@/components/ui/faq-monochrome";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { useTranslation } from "@/translations";
 
 export function FAQ() {
+  const { language } = useLanguage();
+  const t = useTranslation(language);
+
   const faqs = [
     {
-      question: "Does Tenzor work on all markets?",
-      answer: "No, it works exclusively on specific crypto assets that are tailored for this strategy (XRP, SOL, ADA).",
+      question: t.faq.q1,
+      answer: t.faq.a1,
     },
     {
-      question: "Is there a trial period?",
-      answer: "We offer a 7-day money-back guarantee on all purchases.",
+      question: t.faq.q2,
+      answer: t.faq.a2,
     },
     {
-      question: "Do I need trading experience?",
-      answer: "No, Tenzor is designed for both beginners and professionals.",
+      question: t.faq.q3,
+      answer: t.faq.a3,
     },
     {
-      question: "What platform does Tenzor use?",
-      answer: "Tenzor integrates seamlessly with TradingView.",
+      question: t.faq.q4,
+      answer: t.faq.a4,
     },
     {
-      question: "Is support available?",
-      answer: "24/7 support via Discord and email for all subscribers.",
+      question: t.faq.q5,
+      answer: t.faq.a5,
     },
   ];
 
   return (
     <FAQ1
-      title="Frequently Asked Questions"
-      subtitle="Everything you need to know about Tenzor trading system."
+      title={t.faq.title}
+      subtitle={t.faq.subtitle}
       faqs={faqs}
     />
   );
