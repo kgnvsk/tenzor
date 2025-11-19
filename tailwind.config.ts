@@ -57,6 +57,15 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        orange: {
+          300: "hsl(30 100% 60%)",
+          400: "hsl(30 100% 50%)",
+          500: "hsl(25 95% 45%)",
+          600: "hsl(20 90% 40%)",
+          700: "hsl(15 85% 35%)",
+          800: "hsl(15 80% 30%)",
+          900: "hsl(12 75% 20%)",
+        },
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

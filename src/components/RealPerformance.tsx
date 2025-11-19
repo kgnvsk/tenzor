@@ -56,7 +56,7 @@ export function RealPerformance() {
               key={index}
               className="text-center w-40 md:w-48"
             >
-              <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-cyan-400 mb-3 inline-flex items-baseline justify-center">
+              <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-orange-400 mb-3 inline-flex items-baseline justify-center">
                 <NumberFlow 
                   value={isVisible ? stat.value : 0}
                   spinTiming={{ duration: 1500, easing: "ease-out" }}
