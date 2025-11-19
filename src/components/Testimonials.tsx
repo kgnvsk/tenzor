@@ -47,7 +47,7 @@ export function Testimonials() {
       <div className="container mx-auto px-4">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-20 text-foreground">
-            {t.team.title}
+            What Traders Say
           </h2>
 
           <div className="relative max-w-6xl mx-auto">
