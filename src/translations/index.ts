@@ -6,7 +6,9 @@ export const translations = {
       title: "Tenzor",
       subtitle: "Trade the Math. Profit with Precision.",
       description: "— and that's exactly what Alladin does.",
-      subtext: "(Quantum-Inspired Data Modeling)"
+      subtext: "(Quantum-Inspired Data Modeling)",
+      buttonBuy: "Buy indicator",
+      buttonJoin: "Join community"
     },
     whatWeCreatedScroll: {
       title: "What we created",
@@ -157,7 +159,9 @@ export const translations = {
       title: "Tenzor",
       subtitle: "Торгуйте математикою. Отримуйте прибуток з точністю.",
       description: "— і саме це робить Alladin.",
-      subtext: "(Квантово-Натхненне Моделювання Даних)"
+      subtext: "(Квантово-Натхненне Моделювання Даних)",
+      buttonBuy: "Купити індикатор",
+      buttonJoin: "Приєднатися до спільноти"
     },
     whatWeCreatedScroll: {
       title: "Що ми створили",
@@ -308,7 +312,9 @@ export const translations = {
       title: "Tenzor",
       subtitle: "Торгуйте математикой. Получайте прибыль с точностью.",
       description: "— и именно это делает Alladin.",
-      subtext: "(Квантово-Вдохновленное Моделирование Данных)"
+      subtext: "(Квантово-Вдохновленное Моделирование Данных)",
+      buttonBuy: "Купить индикатор",
+      buttonJoin: "Присоединиться к сообществу"
     },
     whatWeCreatedScroll: {
       title: "Что мы создали",
