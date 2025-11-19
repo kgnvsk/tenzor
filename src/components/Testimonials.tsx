@@ -10,18 +10,25 @@ export function Testimonials() {
 
   const testimonials = [
     {
-      name: t.team.magera.name,
-      role: t.team.magera.role,
+      name: "Alex M.",
+      role: "Day Trader",
       roleExtra: null,
-      image: mageraPhoto,
-      text: t.team.magera.quote,
+      image: null,
+      text: "Tenzor transformed my trading. Clear signals, consistent profits. No more emotional decisions.",
     },
     {
-      name: t.team.elliot.name,
-      role: t.team.elliot.role,
-      roleExtra: t.team.elliot.roleExtra,
+      name: "Sarah K.",
+      role: "Swing Trader",
+      roleExtra: null,
       image: null,
-      text: t.team.elliot.quote,
+      text: "The math behind Tenzor is solid. I trust the signals and my results speak for themselves.",
+    },
+    {
+      name: "Mike R.",
+      role: "Crypto Trader",
+      roleExtra: null,
+      image: null,
+      text: "Best investment I've made for my trading career. Simple, effective, profitable.",
     },
   ];
 
