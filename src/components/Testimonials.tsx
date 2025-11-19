@@ -79,35 +79,7 @@ export function Testimonials() {
                     key={index}
                     className="w-full flex-shrink-0 px-4"
                   >
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center bg-muted/30 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-border/50">
-                      {/* Image */}
-                      <div className="flex justify-center lg:justify-start">
-                        <div className="w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden bg-muted">
-                          {testimonial.image ? (
-                            <img
-                              src={testimonial.image}
-                              alt={testimonial.name}
-                              className="w-full h-full object-cover"
-                            />
-                          ) : (
-                            <div className="w-full h-full flex items-center justify-center bg-cyan-500/10">
-                              <svg
-                                className="w-32 h-32 text-cyan-400"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                                strokeWidth={1.5}
-                              >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                                />
-                              </svg>
-                            </div>
-                          )}
-                        </div>
-                      </div>
+                    <div className="bg-muted/30 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-border/50">
 
                       {/* Content */}
                       <div className="space-y-6">
