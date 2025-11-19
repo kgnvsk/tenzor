@@ -167,8 +167,8 @@ export function AnomalousMatterHero({
   return <section role="banner" className="relative w-full h-screen bg-background text-foreground overflow-hidden">
       {/* Dark orange gradient in center - multiple layers for smooth blend */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="absolute w-[1000px] h-[1000px] rounded-full bg-gradient-radial from-orange-900/20 via-orange-950/12 via-orange-950/6 to-transparent blur-[120px]" />
-        <div className="absolute w-[800px] h-[800px] rounded-full bg-gradient-radial from-orange-800/15 via-orange-900/8 to-transparent blur-[100px]" />
+        <div className="absolute w-[1000px] h-[1000px] rounded-full bg-gradient-radial from-orange-900/12 via-orange-950/7 via-orange-950/3 to-transparent blur-[120px]" />
+        <div className="absolute w-[800px] h-[800px] rounded-full bg-gradient-radial from-orange-800/8 via-orange-900/4 to-transparent blur-[100px]" />
       </div>
       <div className="flex flex-col md:flex-row items-center justify-between h-full">
         {/* Left side - Text content */}
