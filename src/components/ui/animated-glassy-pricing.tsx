@@ -81,7 +81,7 @@ const ShaderCanvas = () => {
         mask += paintCircle(uv,center,radius-.018,.01).r;
         mask += paintCircle(uv,center,radius+.018,.005).r;
         vec2 v=rotate2d(iTime)*uv;
-        vec3 foregroundColor=vec3(v.x,v.y,.7-v.y*v.x);
+        vec3 foregroundColor=vec3(1.0, 0.5 + v.x * 0.3, 0.2 + v.y * 0.2);
         vec3 color=mix(uBackgroundColor,foregroundColor,mask);
         color=mix(color,vec3(1.),paintCircle(uv,center,radius,.003).r);
         gl_FragColor=vec4(color,1.);
@@ -141,7 +141,7 @@ const ShaderCanvas = () => {
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="fixed top-0 left-0 w-full h-full block z-0 bg-background" />;
+  return <canvas ref={canvasRef} className="absolute top-0 left-0 w-full h-full block z-0 bg-background" />;
 };
 
 export interface PricingCardProps {
@@ -213,9 +213,9 @@ export const ModernPricingPage = ({
   showAnimatedBackground = true,
 }: ModernPricingPageProps) => {
   return (
-    <div className="bg-background text-foreground min-h-screen w-full overflow-x-hidden">
+    <div className="relative bg-background text-foreground min-h-screen w-full overflow-hidden">
       {showAnimatedBackground && <ShaderCanvas />}
-      <main className="relative w-full min-h-screen flex flex-col items-center justify-center px-4 py-8">
+      <main className="relative w-full min-h-screen flex flex-col items-center justify-center px-4 py-8 z-10">
         <div className="w-full max-w-5xl mx-auto text-center mb-14">
           <h1 className="text-[48px] md:text-[64px] font-extralight leading-tight tracking-[-0.03em] bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-cyan-500 to-blue-600 dark:from-white dark:via-cyan-300 dark:to-blue-400 font-display">
             {title}
