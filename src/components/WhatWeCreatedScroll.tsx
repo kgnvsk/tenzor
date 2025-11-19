@@ -9,16 +9,16 @@ export function WhatWeCreatedScroll() {
 
   return (
     <div className="relative flex flex-col overflow-hidden bg-background">
-      {/* Gradient continuation from hero section - multiple shapes */}
-      <div className="absolute top-0 left-0 right-0 h-screen pointer-events-none overflow-hidden">
-        {/* Top center continuation */}
-        <div className="absolute -top-96 left-1/2 -translate-x-1/2 w-[1200px] h-[600px] rounded-full bg-gradient-radial from-orange-600/40 via-orange-800/25 via-orange-900/15 to-transparent blur-[120px]" />
+      {/* Gradient continuation from hero section - smooth blend, no visible border */}
+      <div className="absolute top-0 left-0 right-0 h-[150vh] pointer-events-none overflow-hidden">
+        {/* Smooth continuation from hero - starts much higher to avoid border */}
+        <div className="absolute -top-[600px] left-1/2 -translate-x-1/2 w-[1400px] h-[800px] rounded-full bg-gradient-radial from-orange-600/8 via-orange-800/4 via-orange-900/2 to-transparent blur-[160px]" />
         
-        {/* Left side accent */}
-        <div className="absolute -top-40 -left-32 w-[600px] h-[800px] rounded-full bg-gradient-radial from-orange-500/30 via-orange-700/20 to-transparent blur-[100px]" />
+        {/* Left side subtle accent */}
+        <div className="absolute -top-[400px] -left-40 w-[700px] h-[900px] rounded-full bg-gradient-radial from-orange-500/6 via-orange-700/3 to-transparent blur-[140px]" />
         
-        {/* Right side accent */}
-        <div className="absolute -top-20 -right-32 w-[500px] h-[700px] rounded-full bg-gradient-radial from-orange-600/35 via-orange-800/20 to-transparent blur-[90px]" />
+        {/* Right side subtle accent */}
+        <div className="absolute -top-[500px] -right-40 w-[600px] h-[800px] rounded-full bg-gradient-radial from-orange-600/7 via-orange-800/4 to-transparent blur-[130px]" />
       </div>
       
       <div className="relative z-10">
