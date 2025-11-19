@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, Suspense } from "react";
 import * as THREE from "three";
+import AnimatedGenerateButton from "@/components/ui/animated-generate-button";
 export function GenerativeArtScene() {
   const mountRef = useRef<HTMLDivElement>(null);
   const lightRef = useRef<THREE.PointLight | null>(null);
@@ -165,8 +166,8 @@ export function AnomalousMatterHero({
   return <section role="banner" className="relative w-full h-screen bg-background text-foreground overflow-hidden">
       {/* Dark orange gradient in center - multiple layers for smooth blend */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="absolute w-[1000px] h-[1000px] rounded-full bg-gradient-radial from-orange-900/15 via-orange-950/8 via-orange-950/4 to-transparent blur-[120px]" />
-        <div className="absolute w-[800px] h-[800px] rounded-full bg-gradient-radial from-orange-800/10 via-transparent to-transparent blur-[100px]" />
+        <div className="absolute w-[1000px] h-[1000px] rounded-full bg-gradient-radial from-orange-900/35 via-orange-950/20 via-orange-950/10 to-transparent blur-[120px]" />
+        <div className="absolute w-[800px] h-[800px] rounded-full bg-gradient-radial from-orange-800/25 via-orange-900/15 to-transparent blur-[100px]" />
       </div>
       <div className="flex flex-col md:flex-row items-center justify-between h-full">
         {/* Left side - Text content */}
@@ -182,9 +183,11 @@ export function AnomalousMatterHero({
             </p>
             
             <div className="flex gap-4 mt-8">
-              <button className="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors">
-                Buy indicator
-              </button>
+              <AnimatedGenerateButton
+                labelIdle="Buy indicator"
+                labelActive="Processing"
+                highlightHueDeg={30}
+              />
               <button className="px-6 py-3 border border-border text-foreground rounded-lg font-semibold hover:bg-secondary transition-colors">
                 Join community
               </button>
