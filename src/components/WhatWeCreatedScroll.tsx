@@ -11,8 +11,8 @@ export function WhatWeCreatedScroll() {
     <div className="relative flex flex-col overflow-hidden bg-background">
       {/* Gradient continuation from hero section */}
       <div className="absolute top-0 left-0 right-0 h-screen flex items-start justify-center pointer-events-none">
-        <div className="absolute w-[1000px] h-[800px] -top-96 rounded-full bg-gradient-radial from-orange-900/18 via-orange-950/10 via-orange-950/5 to-transparent blur-[120px]" />
-        <div className="absolute w-[800px] h-[600px] -top-72 rounded-full bg-gradient-radial from-orange-800/12 via-orange-900/6 to-transparent blur-[100px]" />
+        <div className="absolute w-[1000px] h-[800px] -top-96 rounded-full bg-gradient-radial from-orange-900/35 via-orange-950/20 via-orange-950/10 to-transparent blur-[120px]" />
+        <div className="absolute w-[800px] h-[600px] -top-72 rounded-full bg-gradient-radial from-orange-800/25 via-orange-900/15 to-transparent blur-[100px]" />
       </div>
       
       <div className="relative z-10">
