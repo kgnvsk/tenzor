@@ -164,20 +164,17 @@ export function AnomalousMatterHero({
   subtitle?: string;
   description?: React.ReactNode;
 }) {
-  return <section role="banner" className="relative w-full h-screen bg-background text-foreground overflow-hidden">
-      {/* Dark orange gradient - multiple layers with different shapes and positions */}
+  return <section role="banner" className="relative w-full h-screen bg-gradient-to-b from-background via-background to-black text-foreground overflow-hidden">
+      {/* Orange gradient concentrated in top-left, fading to black at bottom */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Center ellipse */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[600px] rounded-full bg-gradient-radial from-orange-600/24 via-orange-800/14 via-orange-900/8 to-transparent blur-[140px]" />
+        {/* Main bright orange glow - top left */}
+        <div className="absolute -top-40 -left-40 w-[1000px] h-[1000px] rounded-full bg-gradient-radial from-orange-500/40 via-orange-600/25 via-orange-700/15 to-transparent blur-[140px]" />
         
-        {/* Top left accent */}
-        <div className="absolute -top-20 -left-20 w-[600px] h-[800px] rounded-full bg-gradient-radial from-orange-500/16 via-orange-700/10 to-transparent blur-[120px]" />
+        {/* Secondary glow - upper left area */}
+        <div className="absolute top-0 left-1/4 w-[800px] h-[600px] rounded-full bg-gradient-radial from-orange-600/20 via-orange-800/10 to-transparent blur-[120px]" />
         
-        {/* Bottom right accent */}
-        <div className="absolute -bottom-40 -right-40 w-[700px] h-[700px] rounded-full bg-gradient-radial from-orange-600/20 via-orange-800/12 to-transparent blur-[130px]" />
-        
-        {/* Middle right accent */}
-        <div className="absolute top-1/3 -right-20 w-[500px] h-[900px] rounded-full bg-gradient-radial from-orange-500/14 via-orange-700/8 to-transparent blur-[110px]" />
+        {/* Subtle accent - left side */}
+        <div className="absolute top-1/3 -left-20 w-[600px] h-[700px] rounded-full bg-gradient-radial from-orange-500/15 via-orange-700/8 to-transparent blur-[110px]" />
       </div>
       <div className="flex flex-col md:flex-row items-center justify-between h-full">
         {/* Left side - Text content */}
