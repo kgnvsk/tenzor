@@ -10,8 +10,8 @@ export const translations = {
     },
     whatWeCreatedScroll: {
       title: "What we created",
-      description: "Alladin is a trading bot based on our own AI and quantum mechanics approaches. We model the market as a complex system with millions of possible variations, where the outcome depends on historical data and the context of the current moment.",
-      imageAlt: "Alladin Trading Bot Chart"
+      description: "Tenzor is a precision trading indicator built on mathematical algorithms. No emotions. No guesswork. Just clear signals for entry and exit. Trade smarter. Trade with confidence.",
+      imageAlt: "Tenzor Trading Indicator Chart"
     },
     whatWeCreated: {
       title: "What is Alladin?",
@@ -118,8 +118,8 @@ export const translations = {
     },
     whatWeCreatedScroll: {
       title: "Що ми створили",
-      description: "Alladin — це торговий бот на базі власного AI та підходів квантової механіки. Ми моделюємо ринок як складну систему з мільйонами можливих варіацій, де результат залежить від історичних даних та контексту поточного моменту.",
-      imageAlt: "Графік Торгового Бота Alladin"
+      description: "Tenzor — це точний торговий індикатор, побудований на математичних алгоритмах. Без емоцій. Без здогадів. Тільки чіткі сигнали для входу та виходу. Торгуйте розумніше. Торгуйте з упевненістю.",
+      imageAlt: "Графік Торгового Індикатора Tenzor"
     },
     whatWeCreated: {
       title: "Що таке Alladin?",
