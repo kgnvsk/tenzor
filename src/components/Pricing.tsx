@@ -35,7 +35,7 @@ export function Pricing() {
         title={<>Simple Pricing</>}
         subtitle="Pay with crypto."
         plans={pricingPlans}
-        showAnimatedBackground={false}
+        showAnimatedBackground={true}
       />
     </section>
   );
