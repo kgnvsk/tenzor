@@ -93,7 +93,7 @@ export function Testimonials() {
                           <div className="text-2xl md:text-3xl font-bold text-foreground">
                             {testimonial.name}
                           </div>
-                          <div className="text-lg text-cyan-400 mt-1">
+                          <div className="text-lg text-orange-400 mt-1">
                             {testimonial.role}
                             {testimonial.roleExtra && (
                               <span className="text-muted-foreground ml-2">

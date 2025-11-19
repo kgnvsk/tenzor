@@ -49,7 +49,7 @@ export function WhatAladinCanDo() {
               <div
                 key={index}
                 className={cn(
-                  "relative flex h-36 w-72 select-none flex-col justify-between rounded-xl border-2 bg-muted/70 backdrop-blur-sm px-4 py-3 transition-all duration-700 hover:border-cyan-400/50 hover:bg-muted hover:-translate-y-4 hover:scale-105 [&>*]:flex [&>*]:items-center [&>*]:gap-2",
+                  "relative flex h-36 w-72 select-none flex-col justify-between rounded-xl border-2 bg-muted/70 backdrop-blur-sm px-4 py-3 transition-all duration-700 hover:border-orange-400/50 hover:bg-muted hover:-translate-y-4 hover:scale-105 [&>*]:flex [&>*]:items-center [&>*]:gap-2",
                   "before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/10 grayscale-[30%] hover:before:opacity-0 before:transition-opacity before:duration-700 hover:grayscale-0 before:left-0 before:top-0"
                 )}
                 style={{
@@ -58,10 +58,10 @@ export function WhatAladinCanDo() {
                 }}
               >
                 <div>
-                  <span className="relative inline-block rounded-full bg-cyan-900/50 p-1">
-                    <Icon className="size-4 text-cyan-300" />
+                  <span className="relative inline-block rounded-full bg-orange-900/50 p-1">
+                    <Icon className="size-4 text-orange-300" />
                   </span>
-                  <p className="text-lg font-medium text-cyan-400">{capability.subtitle}</p>
+                  <p className="text-lg font-medium text-orange-400">{capability.subtitle}</p>
                 </div>
                 <p className="text-base text-foreground">{capability.title}</p>
                 <p className="text-sm text-muted-foreground">{t.whatAladinCanDo.active}</p>

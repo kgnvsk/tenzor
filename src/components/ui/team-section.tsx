@@ -72,13 +72,13 @@ export const TeamSection = React.forwardRef<HTMLDivElement, TeamSectionProps>(
               >
                 {/* Background wave animation */}
                 <div
-                  className="absolute bottom-0 left-0 right-0 h-1/2 origin-bottom scale-y-0 transform rounded-t-full bg-gradient-to-t from-cyan-500/10 to-transparent transition-transform duration-500 ease-out group-hover:scale-y-100"
+                  className="absolute bottom-0 left-0 right-0 h-1/2 origin-bottom scale-y-0 transform rounded-t-full bg-gradient-to-t from-orange-500/10 to-transparent transition-transform duration-500 ease-out group-hover:scale-y-100"
                   style={{ transitionDelay: `${index * 50}ms` }}
                 />
 
                 {/* Member Image with mask and border animation */}
                 <div
-                  className="relative z-10 h-40 w-40 md:h-48 md:w-48 overflow-hidden rounded-full border-4 border-cyan-500/30 bg-cyan-500/10 transition-all duration-500 ease-out group-hover:border-cyan-400/50 group-hover:scale-105 flex items-center justify-center"
+                  className="relative z-10 h-40 w-40 md:h-48 md:w-48 overflow-hidden rounded-full border-4 border-orange-500/30 bg-orange-500/10 transition-all duration-500 ease-out group-hover:border-orange-400/50 group-hover:scale-105 flex items-center justify-center"
                   style={{ transitionDelay: `${index * 100}ms` }}
                 >
                   {member.imageSrc ? (
@@ -89,7 +89,7 @@ export const TeamSection = React.forwardRef<HTMLDivElement, TeamSectionProps>(
                     />
                   ) : (
                     <svg
-                      className="h-16 w-16 md:h-20 md:w-20 text-cyan-400"
+                      className="h-16 w-16 md:h-20 md:w-20 text-orange-400"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -107,7 +107,7 @@ export const TeamSection = React.forwardRef<HTMLDivElement, TeamSectionProps>(
                 <h3 className="relative z-10 mt-6 text-2xl md:text-3xl font-bold text-foreground">
                   {member.name}
                 </h3>
-                <p className="relative z-10 mt-2 text-lg md:text-xl text-cyan-400">
+                <p className="relative z-10 mt-2 text-lg md:text-xl text-orange-400">
                   {member.designation}
                 </p>
 
@@ -126,7 +126,7 @@ export const TeamSection = React.forwardRef<HTMLDivElement, TeamSectionProps>(
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-cyan-400 transition-colors"
+                        className="text-muted-foreground hover:text-orange-400 transition-colors"
                       >
                         <link.icon className="h-5 w-5" />
                       </a>

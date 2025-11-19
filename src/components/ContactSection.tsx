@@ -44,11 +44,11 @@ export function ContactSection() {
                   href={contact.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group bg-muted/30 backdrop-blur-sm rounded-2xl p-8 border border-border/50 hover:border-cyan-400/50 transition-all duration-300 hover:bg-muted/40"
+                  className="group bg-muted/30 backdrop-blur-sm rounded-2xl p-8 border border-border/50 hover:border-orange-400/50 transition-all duration-300 hover:bg-muted/40"
                 >
                   <div className="flex flex-col items-center space-y-4">
-                    <div className="w-16 h-16 rounded-xl bg-cyan-500/10 flex items-center justify-center group-hover:bg-cyan-500/20 transition-colors">
-                      <Icon className="w-8 h-8 text-cyan-400" />
+                    <div className="w-16 h-16 rounded-xl bg-orange-500/10 flex items-center justify-center group-hover:bg-orange-500/20 transition-colors">
+                      <Icon className="w-8 h-8 text-orange-400" />
                     </div>
                     <div className="text-center">
                       <div className="text-sm text-muted-foreground mb-1">
