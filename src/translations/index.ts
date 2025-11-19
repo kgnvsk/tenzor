@@ -40,13 +40,9 @@ export const translations = {
     },
     realPerformance: {
       title: "Real Performance",
-      stat1Label: "win rate",
-      stat2Label: "trades/month",
-      stat3Label: "market noise filtered",
-      stat4Label: "events/day",
-      stat5Label: "reaction speed",
-      stat6Label: "markets analyzed",
-      stat7Label: "proprietary ML models"
+      stat1Label: "Win Rate",
+      stat2Label: "Profit Factor",
+      stat3Label: "Active Traders"
     },
     technicalCapabilities: {
       title: "Methods we use",
@@ -101,6 +97,39 @@ export const translations = {
         roleExtra: "(Ex-IBM, Ex-Citadel)",
         quote: "Real-time AI meets quant-grade execution. Coming from IBM and Citadel, I can confidently say this is the most sophisticated system I've worked with."
       }
+    },
+    testimonials: {
+      title: "What Traders Say",
+      trader1Name: "Alex M.",
+      trader1Role: "Day Trader",
+      trader1Text: "Tenzor transformed my trading. Clear signals, consistent profits. No more emotional decisions.",
+      trader2Name: "Sarah K.",
+      trader2Role: "Swing Trader",
+      trader2Text: "The math behind Tenzor is solid. I trust the signals and my results speak for themselves.",
+      trader3Name: "Mike R.",
+      trader3Role: "Crypto Trader",
+      trader3Text: "Best investment I've made for my trading career. Simple, effective, profitable."
+    },
+    pricing: {
+      title: "Simple Pricing",
+      subtitle: "Pay with crypto.",
+      monthly: "Monthly",
+      monthlyDesc: "per month",
+      monthlyPrice: "99",
+      quarterly: "Quarterly",
+      quarterlyDesc: "per 3 months",
+      quarterlyPrice: "249",
+      yearly: "Yearly",
+      yearlyDesc: "save $189",
+      yearlyPrice: "999",
+      feature1: "Full access to all features",
+      feature2: "Priority support",
+      feature3Monthly: "Cancel anytime",
+      feature3Quarterly: "Save 16%",
+      feature4Quarterly: "Best value",
+      feature3Yearly: "Save 17%",
+      feature4Yearly: "Maximum savings",
+      buttonText: "Buy Now"
     },
     contact: {
       title: "Get in Touch",
@@ -162,13 +191,9 @@ export const translations = {
     },
     realPerformance: {
       title: "Реальна Продуктивність",
-      stat1Label: "рівень успіху",
-      stat2Label: "угод/місяць",
-      stat3Label: "відфільтровано ринкового шуму",
-      stat4Label: "подій/день",
-      stat5Label: "швидкість реакції",
-      stat6Label: "проаналізовано ринків",
-      stat7Label: "власних ML моделей"
+      stat1Label: "Рівень Успіху",
+      stat2Label: "Фактор Прибутку",
+      stat3Label: "Активних Трейдерів"
     },
     technicalCapabilities: {
       title: "Методи, які ми використовуємо",
@@ -223,6 +248,39 @@ export const translations = {
         roleExtra: "(Ex-IBM, Ex-Citadel)",
         quote: "AI в реальному часі зустрічає квантове виконання. Прийшовши з IBM та Citadel, я можу впевнено сказати, що це найсучасніша система, з якою я працював."
       }
+    },
+    testimonials: {
+      title: "Що Кажуть Трейдери",
+      trader1Name: "Олекс М.",
+      trader1Role: "Денний Трейдер",
+      trader1Text: "Tenzor трансформував мою торгівлю. Чіткі сигнали, стабільний прибуток. Більше ніяких емоційних рішень.",
+      trader2Name: "Сара К.",
+      trader2Role: "Свінг Трейдер",
+      trader2Text: "Математика за Tenzor надійна. Я довіряю сигналам, і мої результати говорять самі за себе.",
+      trader3Name: "Майк Р.",
+      trader3Role: "Крипто Трейдер",
+      trader3Text: "Найкраща інвестиція в мою торгову кар'єру. Просто, ефективно, прибутково."
+    },
+    pricing: {
+      title: "Проста Ціна",
+      subtitle: "Оплата криптою.",
+      monthly: "Місячний",
+      monthlyDesc: "на місяць",
+      monthlyPrice: "99",
+      quarterly: "Квартальний",
+      quarterlyDesc: "на 3 місяці",
+      quarterlyPrice: "249",
+      yearly: "Річний",
+      yearlyDesc: "заощадити $189",
+      yearlyPrice: "999",
+      feature1: "Повний доступ до всіх функцій",
+      feature2: "Пріоритетна підтримка",
+      feature3Monthly: "Скасування в будь-який час",
+      feature3Quarterly: "Заощаджуйте 16%",
+      feature4Quarterly: "Найкраща ціна",
+      feature3Yearly: "Заощаджуйте 17%",
+      feature4Yearly: "Максимальна економія",
+      buttonText: "Купити Зараз"
     },
     contact: {
       title: "Зв'яжіться з Нами",
@@ -284,13 +342,9 @@ export const translations = {
     },
     realPerformance: {
       title: "Реальная Производительность",
-      stat1Label: "уровень успеха",
-      stat2Label: "сделок/месяц",
-      stat3Label: "отфильтровано рыночного шума",
-      stat4Label: "событий/день",
-      stat5Label: "скорость реакции",
-      stat6Label: "проанализировано рынков",
-      stat7Label: "собственных ML моделей"
+      stat1Label: "Уровень Успеха",
+      stat2Label: "Фактор Прибыли",
+      stat3Label: "Активных Трейдеров"
     },
     technicalCapabilities: {
       title: "Методы, которые мы используем",
@@ -345,6 +399,39 @@ export const translations = {
         roleExtra: "(Ex-IBM, Ex-Citadel)",
         quote: "AI в реальном времени встречает квантовое исполнение. Придя из IBM и Citadel, я могу уверенно сказать, что это самая современная система, с которой я работал."
       }
+    },
+    testimonials: {
+      title: "Что Говорят Трейдеры",
+      trader1Name: "Алекс М.",
+      trader1Role: "Дневной Трейдер",
+      trader1Text: "Tenzor трансформировал мою торговлю. Четкие сигналы, стабильная прибыль. Больше никаких эмоциональных решений.",
+      trader2Name: "Сара К.",
+      trader2Role: "Свинг Трейдер",
+      trader2Text: "Математика за Tenzor надежна. Я доверяю сигналам, и мои результаты говорят сами за себя.",
+      trader3Name: "Майк Р.",
+      trader3Role: "Крипто Трейдер",
+      trader3Text: "Лучшая инвестиция в мою торговую карьеру. Просто, эффективно, прибыльно."
+    },
+    pricing: {
+      title: "Простая Цена",
+      subtitle: "Оплата криптой.",
+      monthly: "Месячный",
+      monthlyDesc: "в месяц",
+      monthlyPrice: "99",
+      quarterly: "Квартальный",
+      quarterlyDesc: "на 3 месяца",
+      quarterlyPrice: "249",
+      yearly: "Годовой",
+      yearlyDesc: "сэкономить $189",
+      yearlyPrice: "999",
+      feature1: "Полный доступ ко всем функциям",
+      feature2: "Приоритетная поддержка",
+      feature3Monthly: "Отмена в любое время",
+      feature3Quarterly: "Экономия 16%",
+      feature4Quarterly: "Лучшая цена",
+      feature3Yearly: "Экономия 17%",
+      feature4Yearly: "Максимальная экономия",
+      buttonText: "Купить Сейчас"
     },
     contact: {
       title: "Свяжитесь с Нами",

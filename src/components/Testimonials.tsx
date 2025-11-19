@@ -10,25 +10,25 @@ export function Testimonials() {
 
   const testimonials = [
     {
-      name: "Alex M.",
-      role: "Day Trader",
+      name: t.testimonials.trader1Name,
+      role: t.testimonials.trader1Role,
       roleExtra: null,
       image: null,
-      text: "Tenzor transformed my trading. Clear signals, consistent profits. No more emotional decisions.",
+      text: t.testimonials.trader1Text,
     },
     {
-      name: "Sarah K.",
-      role: "Swing Trader",
+      name: t.testimonials.trader2Name,
+      role: t.testimonials.trader2Role,
       roleExtra: null,
       image: null,
-      text: "The math behind Tenzor is solid. I trust the signals and my results speak for themselves.",
+      text: t.testimonials.trader2Text,
     },
     {
-      name: "Mike R.",
-      role: "Crypto Trader",
+      name: t.testimonials.trader3Name,
+      role: t.testimonials.trader3Role,
       roleExtra: null,
       image: null,
-      text: "Best investment I've made for my trading career. Simple, effective, profitable.",
+      text: t.testimonials.trader3Text,
     },
   ];
 
@@ -47,7 +47,7 @@ export function Testimonials() {
       <div className="container mx-auto px-4">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-20 text-foreground">
-            What Traders Say
+            {t.testimonials.title}
           </h2>
 
           <div className="relative max-w-6xl mx-auto">
