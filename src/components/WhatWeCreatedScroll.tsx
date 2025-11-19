@@ -8,7 +8,7 @@ export function WhatWeCreatedScroll() {
   const t = useTranslation(language);
 
   return (
-    <div className="relative flex flex-col overflow-hidden bg-background">
+    <div className="relative flex flex-col overflow-hidden bg-gradient-to-b from-transparent via-background/50 to-background">
       {/* Gradient continuation from hero section - smooth blend, no visible border */}
       <div className="absolute top-0 left-0 right-0 h-[150vh] pointer-events-none overflow-hidden">
         {/* Smooth continuation from hero - starts much higher to avoid border */}
