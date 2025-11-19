@@ -121,11 +121,11 @@ export function FAQ1({
         z-index: 1;
         flex: 1 1 auto;
         height: 1px;
-        background: linear-gradient(90deg, transparent, currentColor 35%, transparent 85%);
+        background: linear-gradient(90deg, transparent, hsl(24, 100%, 60%), hsl(30, 100%, 65%), transparent 85%);
         transform: scaleX(0);
         transform-origin: left;
         animation: faq1-meter 5.8s ease-in-out infinite;
-        opacity: 0.7;
+        opacity: 0.9;
       }
       .faq1-intro__tick {
         position: relative;
