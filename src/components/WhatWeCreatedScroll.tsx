@@ -9,18 +9,6 @@ export function WhatWeCreatedScroll() {
 
   return (
     <div className="relative flex flex-col overflow-hidden bg-gradient-to-b from-transparent via-transparent via-background/20 to-background">
-      {/* Gradient continuation from hero section - smooth blend, no visible border */}
-      <div className="absolute top-0 left-0 right-0 h-[150vh] pointer-events-none overflow-hidden">
-        {/* Smooth continuation from hero - starts much higher to avoid border */}
-        <div className="absolute -top-[600px] left-1/2 -translate-x-1/2 w-[1400px] h-[800px] rounded-full bg-gradient-radial from-orange-600/16 via-orange-800/8 via-orange-900/4 to-transparent blur-[160px]" />
-        
-        {/* Left side subtle accent */}
-        <div className="absolute -top-[400px] -left-40 w-[700px] h-[900px] rounded-full bg-gradient-radial from-orange-500/12 via-orange-700/6 to-transparent blur-[140px]" />
-        
-        {/* Right side subtle accent */}
-        <div className="absolute -top-[500px] -right-40 w-[600px] h-[800px] rounded-full bg-gradient-radial from-orange-600/14 via-orange-800/8 to-transparent blur-[130px]" />
-      </div>
-      
       <div className="relative z-10">
         <ContainerScroll
           titleComponent={
