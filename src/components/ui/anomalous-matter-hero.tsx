@@ -158,11 +158,15 @@ export function GenerativeArtScene() {
 export function AnomalousMatterHero({
   title = "Observation Log: Anomaly 7",
   subtitle = "Matter in a state of constant, beautiful flux.",
-  description = "A new form of digital existence has been observed. It responds to stimuli, changes form, and exudes an unknown energy. Further study is required."
+  description = "A new form of digital existence has been observed. It responds to stimuli, changes form, and exudes an unknown energy. Further study is required.",
+  buttonBuy = "Buy indicator",
+  buttonJoin = "Join community"
 }: {
   title?: string;
   subtitle?: string;
   description?: React.ReactNode;
+  buttonBuy?: string;
+  buttonJoin?: string;
 }) {
   return <section role="banner" className="relative w-full h-screen bg-gradient-to-b from-background via-background to-black text-foreground overflow-hidden">
       {/* Subtle orange gradient in top-left area */}
@@ -184,18 +188,16 @@ export function AnomalousMatterHero({
               {title}
             </h1>
             <p className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8">
-              Trade the Math.
-              <br />
-              <span className="whitespace-nowrap">Profit with Precision.</span>
+              {subtitle}
             </p>
             
             <div className="flex gap-4 mt-8">
               <AnimatedGenerateButton
-                labelIdle="Buy indicator"
+                labelIdle={buttonBuy}
                 labelActive="Processing"
                 highlightHueDeg={30}
               />
-              <GetStartedButton>Join community</GetStartedButton>
+              <GetStartedButton>{buttonJoin}</GetStartedButton>
             </div>
           </div>
         </div>

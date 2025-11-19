@@ -28,6 +28,8 @@ const Index = () => {
             <span className="italic opacity-80">{t.hero.subtext}</span>
           </>
         }
+        buttonBuy={t.hero.buttonBuy}
+        buttonJoin={t.hero.buttonJoin}
       />
       <WhatWeCreatedScroll />
       <WhatWeCreated />
