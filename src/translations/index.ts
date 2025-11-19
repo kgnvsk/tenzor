@@ -80,14 +80,12 @@ export const translations = {
     },
     howItWorks: {
       title: "How It Works",
-      step1Title: "Market data ingestion",
-      step1Desc: "Real-time multi-source aggregation",
-      step2Title: "Scenario modeling",
-      step2Desc: "Quantum-inspired probability trees",
-      step3Title: "Signal scoring",
-      step3Desc: "AI-weighted confidence ranking",
-      step4Title: "Action trigger",
-      step4Desc: "Sub-second execution"
+      step1Title: "Install",
+      step1Desc: "Add Tenzor to your TradingView chart",
+      step2Title: "Receive Signals",
+      step2Desc: "Get clear buy/sell alerts in real-time",
+      step3Title: "Execute",
+      step3Desc: "Follow the signal and profit with precision"
     },
     team: {
       title: "Team",
@@ -190,14 +188,12 @@ export const translations = {
     },
     howItWorks: {
       title: "Як це працює",
-      step1Title: "Збір ринкових даних",
-      step1Desc: "Багатоджерельна агрегація в реальному часі",
-      step2Title: "Моделювання сценаріїв",
-      step2Desc: "Квантово-натхненні дерева ймовірності",
-      step3Title: "Оцінка сигналів",
-      step3Desc: "Ранжування впевненості, зважене AI",
-      step4Title: "Тригер дії",
-      step4Desc: "Виконання за частки секунди"
+      step1Title: "Встановлення",
+      step1Desc: "Додайте Tenzor до вашого графіку TradingView",
+      step2Title: "Отримання Сигналів",
+      step2Desc: "Отримуйте чіткі сповіщення про покупку/продаж в реальному часі",
+      step3Title: "Виконання",
+      step3Desc: "Слідуйте сигналу та отримуйте прибуток з точністю"
     },
     team: {
       title: "Команда",
@@ -300,14 +296,12 @@ export const translations = {
     },
     howItWorks: {
       title: "Как это работает",
-      step1Title: "Сбор рыночных данных",
-      step1Desc: "Многоисточниковая агрегация в реальном времени",
-      step2Title: "Моделирование сценариев",
-      step2Desc: "Квантово-вдохновленные деревья вероятности",
-      step3Title: "Оценка сигналов",
-      step3Desc: "Ранжирование уверенности, взвешенное AI",
-      step4Title: "Триггер действия",
-      step4Desc: "Выполнение за доли секунды"
+      step1Title: "Установка",
+      step1Desc: "Добавьте Tenzor на ваш график TradingView",
+      step2Title: "Получение Сигналов",
+      step2Desc: "Получайте четкие уведомления о покупке/продаже в реальном времени",
+      step3Title: "Выполнение",
+      step3Desc: "Следуйте сигналу и получайте прибыль с точностью"
     },
     team: {
       title: "Команда",

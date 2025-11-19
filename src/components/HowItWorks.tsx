@@ -62,24 +62,6 @@ export function HowItWorks() {
         </div>
       ),
     },
-    {
-      title: "04",
-      content: (
-        <div className="flex items-start gap-6">
-          <div className="flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-full bg-cyan-500/10 flex items-center justify-center border border-cyan-500/20">
-            <Zap className="w-8 h-8 md:w-10 md:h-10 text-cyan-400" strokeWidth={1.5} />
-          </div>
-          <div>
-            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
-              {t.howItWorks.step4Title}
-            </h3>
-            <p className="text-muted-foreground text-base md:text-lg">
-              {t.howItWorks.step4Desc}
-            </p>
-          </div>
-        </div>
-      ),
-    },
   ];
 
   return (
