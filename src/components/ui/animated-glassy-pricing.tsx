@@ -218,11 +218,11 @@ export const ModernPricingPage = ({
     <div className="relative bg-background text-foreground min-h-screen w-full overflow-hidden">
       {showAnimatedBackground && <ShaderCanvas />}
       <main className="relative w-full min-h-screen flex flex-col items-center justify-center px-4 py-8 z-10">
-        <div className="w-full max-w-5xl mx-auto text-center mb-14">
+        <div className="w-full max-w-5xl mx-auto text-center mb-20 mt-16">
           <h1 className="text-[48px] md:text-[64px] font-extralight leading-tight tracking-[-0.03em] bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-orange-500 to-orange-600 dark:from-white dark:via-orange-300 dark:to-orange-400 font-display">
             {title}
           </h1>
-          <p className="mt-3 text-[16px] md:text-[20px] text-foreground/80 max-w-2xl mx-auto font-sans">
+          <p className="mt-4 text-[16px] md:text-[20px] text-foreground/80 max-w-2xl mx-auto font-sans">
             {subtitle}
           </p>
         </div>
