@@ -208,12 +208,6 @@ export function FAQ1({ title = "Focus on the signal, not the noise.", subtitle =
 
   return (
     <div className={`relative min-h-screen w-full overflow-hidden transition-colors duration-700 ${palette.surface}`}>
-      <div className="absolute inset-0 z-0" style={{ background: palette.aurora }} />
-      <div
-        className="pointer-events-none absolute inset-0 z-0 opacity-80"
-        style={{ background: palette.overlay, mixBlendMode: "screen" }}
-      />
-
       <section
         className={`relative z-10 mx-auto flex max-w-4xl flex-col gap-12 px-6 py-24 lg:max-w-5xl lg:px-12 ${
           hasEntered ? "faq1-fade--ready" : "faq1-fade"
