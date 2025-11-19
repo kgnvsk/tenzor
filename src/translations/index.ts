@@ -134,10 +134,10 @@ export const translations = {
       buttonText: "Buy Now"
     },
     contact: {
-      title: "Get in Touch",
-      telegram: "Telegram",
-      whatsapp: "WhatsApp",
-      email: "Email"
+      title: "Join Our Community",
+      subtitle: "Join our private trading circle.",
+      discord: "Discord",
+      telegram: "Telegram"
     },
     faq: {
       title: "Frequently Asked Questions",
@@ -287,10 +287,10 @@ export const translations = {
       buttonText: "Купити Зараз"
     },
     contact: {
-      title: "Зв'яжіться з Нами",
-      telegram: "Telegram",
-      whatsapp: "WhatsApp",
-      email: "Email"
+      title: "Приєднайтесь до Нашої Спільноти",
+      subtitle: "Приєднуйтесь до нашого приватного торгового кола.",
+      discord: "Discord",
+      telegram: "Telegram"
     },
     faq: {
       title: "Поширені Запитання",
@@ -440,10 +440,10 @@ export const translations = {
       buttonText: "Купить Сейчас"
     },
     contact: {
-      title: "Свяжитесь с Нами",
-      telegram: "Telegram",
-      whatsapp: "WhatsApp",
-      email: "Email"
+      title: "Присоединяйтесь к Нашему Сообществу",
+      subtitle: "Присоединяйтесь к нашему частному торговому кругу.",
+      discord: "Discord",
+      telegram: "Telegram"
     },
     faq: {
       title: "Часто Задаваемые Вопросы",
