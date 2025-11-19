@@ -194,7 +194,9 @@ export const PricingCard = ({
           </li>
         ))}
       </ul>
-      <RippleButton className={buttonClasses.trim()}>{buttonText}</RippleButton>
+      <a href="https://t.me/tenzor_pay_bot" target="_blank" rel="noopener noreferrer">
+        <RippleButton className={buttonClasses.trim()}>{buttonText}</RippleButton>
+      </a>
     </div>
   );
 };

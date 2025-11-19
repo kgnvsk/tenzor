@@ -192,12 +192,16 @@ export function AnomalousMatterHero({
             </p>
             
             <div className="flex gap-4 mt-8">
-              <AnimatedGenerateButton
-                labelIdle={buttonBuy}
-                labelActive="Processing"
-                highlightHueDeg={30}
-              />
-              <GetStartedButton>{buttonJoin}</GetStartedButton>
+              <a href="https://t.me/tenzor_pay_bot" target="_blank" rel="noopener noreferrer">
+                <AnimatedGenerateButton
+                  labelIdle={buttonBuy}
+                  labelActive="Processing"
+                  highlightHueDeg={30}
+                />
+              </a>
+              <a href="#contact">
+                <GetStartedButton>{buttonJoin}</GetStartedButton>
+              </a>
             </div>
           </div>
         </div>
