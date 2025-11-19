@@ -38,7 +38,7 @@ export default function AnimatedGenerateButton({
         className={clsx(
           "ui-anim-btn",
           "relative flex items-center justify-center cursor-pointer select-none",
-          "rounded-[24px] px-4 py-2",
+          "rounded-[24px] px-6 py-3 min-w-[220px]",
           "bg-[hsl(var(--background))] text-[hsl(var(--foreground))]",
           "border border-[hsl(var(--border))]/20",
           "shadow-[inset_0px_1px_1px_rgba(255,255,255,0.2),inset_0px_2px_2px_rgba(255,255,255,0.15),inset_0px_4px_4px_rgba(255,255,255,0.1),inset_0px_8px_8px_rgba(255,255,255,0.05),inset_0px_16px_16px_rgba(255,255,255,0.05),0_-1px_1px_rgba(0,0,0,0.02),0_-2px_2px_rgba(0,0,0,0.03),0_-4px_4px_rgba(0,0,0,0.05),0_-8px_8px_rgba(0,0,0,0.06),0_-16px_16px_rgba(0,0,0,0.08)]",
@@ -59,7 +59,7 @@ export default function AnimatedGenerateButton({
           strokeWidth={2}
           aria-hidden="true"
         />
-        <div className="ui-anim-txt-wrapper relative flex min-w-[6.4em] items-center">
+        <div className="ui-anim-txt-wrapper relative flex min-w-[8em] items-center whitespace-nowrap">
           <div
             className={clsx(
               "ui-anim-txt-1 absolute",
