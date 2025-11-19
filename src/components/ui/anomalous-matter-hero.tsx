@@ -163,10 +163,10 @@ export function AnomalousMatterHero({
   description?: React.ReactNode;
 }) {
   return <section role="banner" className="relative w-full h-screen bg-background text-foreground overflow-hidden">
-      {/* Dark green gradient in center - multiple layers for smooth blend */}
+      {/* Dark orange gradient in center - multiple layers for smooth blend */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="absolute w-[1000px] h-[1000px] rounded-full bg-gradient-radial from-emerald-900/15 via-emerald-950/8 via-emerald-950/4 to-transparent blur-[120px]" />
-        <div className="absolute w-[800px] h-[800px] rounded-full bg-gradient-radial from-emerald-800/10 via-transparent to-transparent blur-[100px]" />
+        <div className="absolute w-[1000px] h-[1000px] rounded-full bg-gradient-radial from-orange-900/15 via-orange-950/8 via-orange-950/4 to-transparent blur-[120px]" />
+        <div className="absolute w-[800px] h-[800px] rounded-full bg-gradient-radial from-orange-800/10 via-transparent to-transparent blur-[100px]" />
       </div>
       <div className="flex flex-col md:flex-row items-center justify-between h-full">
         {/* Left side - Text content */}
