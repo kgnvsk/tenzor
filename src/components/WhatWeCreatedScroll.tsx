@@ -8,7 +8,12 @@ export function WhatWeCreatedScroll() {
   const t = useTranslation(language);
 
   return (
-    <div className="relative flex flex-col overflow-hidden bg-gradient-to-b from-transparent via-transparent via-background/20 to-background">
+    <div className="relative flex flex-col overflow-hidden bg-gradient-to-b from-transparent via-transparent via-background/30 to-background">
+      {/* Subtle gradient continuation at the top only */}
+      <div className="absolute top-0 left-0 right-0 h-[50vh] pointer-events-none">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] rounded-full bg-gradient-radial from-orange-600/10 via-orange-800/5 to-transparent blur-[120px]" />
+      </div>
+      
       <div className="relative z-10">
         <ContainerScroll
           titleComponent={
