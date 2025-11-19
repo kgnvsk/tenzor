@@ -178,7 +178,7 @@ export function AnomalousMatterHero({
             <p className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8">
               Trade the Math.
               <br />
-              Profit with Precision.
+              <span className="whitespace-nowrap">Profit with Precision.</span>
             </p>
             
             <div className="flex gap-4 mt-8">
