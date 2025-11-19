@@ -35,13 +35,9 @@ export function RealPerformance() {
   }, []);
 
   const stats = [
-    { value: 83, suffix: "%", label: t.realPerformance.stat1Label },
-    { value: 100, suffix: "+", label: t.realPerformance.stat2Label },
-    { value: 98, suffix: "%", label: t.realPerformance.stat3Label },
-    { value: 100, suffix: "M+", label: t.realPerformance.stat4Label },
-    { value: 290, prefix: "<", suffix: "ms", label: t.realPerformance.stat5Label },
-    { value: 27, suffix: "", label: t.realPerformance.stat6Label },
-    { value: 20, suffix: "+", label: t.realPerformance.stat7Label },
+    { value: 80, suffix: "%", label: "Win Rate" },
+    { value: 2.0, suffix: "+", label: "Profit Factor" },
+    { value: 5, suffix: "K+", label: "Active Traders" },
   ];
 
   return (
@@ -61,7 +57,6 @@ export function RealPerformance() {
               className="text-center w-40 md:w-48"
             >
               <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-cyan-400 mb-3 inline-flex items-baseline justify-center">
-                {stat.prefix && <span className="mr-1">{stat.prefix}</span>}
                 <NumberFlow 
                   value={isVisible ? stat.value : 0}
                   spinTiming={{ duration: 1500, easing: "ease-out" }}

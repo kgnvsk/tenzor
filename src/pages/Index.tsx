@@ -1,7 +1,6 @@
 import { AnomalousMatterHero } from "@/components/ui/anomalous-matter-hero";
 import { WhatWeCreatedScroll } from "@/components/WhatWeCreatedScroll";
 import { WhatWeCreated } from "@/components/WhatWeCreated";
-import { WhatAladinCanDo } from "@/components/WhatAladinCanDo";
 import { RealPerformance } from "@/components/RealPerformance";
 import { HowItWorks } from "@/components/HowItWorks";
 import { Testimonials } from "@/components/Testimonials";
@@ -30,7 +29,6 @@ const Index = () => {
       />
       <WhatWeCreatedScroll />
       <WhatWeCreated />
-      <WhatAladinCanDo />
       <RealPerformance />
       <HowItWorks />
       <Testimonials />
