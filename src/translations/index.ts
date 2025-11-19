@@ -3,8 +3,8 @@ import { Language } from '@/contexts/LanguageContext';
 export const translations = {
   en: {
     hero: {
-      title: "Alladin AI",
-      subtitle: "There is no randomness. There is only complexity that has not yet been calculated.",
+      title: "Tenzor",
+      subtitle: "Trade the Math. Profit with Precision.",
       description: "— and that's exactly what Alladin does.",
       subtext: "(Quantum-Inspired Data Modeling)"
     },
