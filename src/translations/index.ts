@@ -107,12 +107,26 @@ export const translations = {
       telegram: "Telegram",
       whatsapp: "WhatsApp",
       email: "Email"
+    },
+    faq: {
+      title: "Frequently Asked Questions",
+      subtitle: "Everything you need to know about Tenzor trading system.",
+      q1: "Does Tenzor work on all markets?",
+      a1: "No, it works exclusively on specific crypto assets that are tailored for this strategy (XRP, SOL, ADA).",
+      q2: "Is there a trial period?",
+      a2: "We offer a 7-day money-back guarantee on all purchases.",
+      q3: "Do I need trading experience?",
+      a3: "No, Tenzor is designed for both beginners and professionals.",
+      q4: "What platform does Tenzor use?",
+      a4: "Tenzor integrates seamlessly with TradingView.",
+      q5: "Is support available?",
+      a5: "24/7 support via Discord and email for all subscribers."
     }
   },
   ua: {
     hero: {
-      title: "Alladin AI",
-      subtitle: "Немає випадковості. Є лише складність, яка ще не була обчислена.",
+      title: "Tenzor",
+      subtitle: "Торгуйте математикою. Отримуйте прибуток з точністю.",
       description: "— і саме це робить Alladin.",
       subtext: "(Квантово-Натхненне Моделювання Даних)"
     },
@@ -215,12 +229,26 @@ export const translations = {
       telegram: "Telegram",
       whatsapp: "WhatsApp",
       email: "Email"
+    },
+    faq: {
+      title: "Поширені Запитання",
+      subtitle: "Все, що вам потрібно знати про торгову систему Tenzor.",
+      q1: "Чи працює Tenzor на всіх ринках?",
+      a1: "Ні, він працює виключно з конкретними криптоактивами, які підібрані для цієї стратегії (XRP, SOL, ADA).",
+      q2: "Чи є пробний період?",
+      a2: "Ми пропонуємо 7-денну гарантію повернення коштів на всі покупки.",
+      q3: "Чи потрібен торговий досвід?",
+      a3: "Ні, Tenzor розроблений як для початківців, так і для професіоналів.",
+      q4: "Яку платформу використовує Tenzor?",
+      a4: "Tenzor бездоганно інтегрується з TradingView.",
+      q5: "Чи доступна підтримка?",
+      a5: "Підтримка 24/7 через Discord та електронну пошту для всіх підписників."
     }
   },
   ru: {
     hero: {
-      title: "Alladin AI",
-      subtitle: "Нет случайности. Есть только сложность, которая еще не была вычислена.",
+      title: "Tenzor",
+      subtitle: "Торгуйте математикой. Получайте прибыль с точностью.",
       description: "— и именно это делает Alladin.",
       subtext: "(Квантово-Вдохновленное Моделирование Данных)"
     },
@@ -323,6 +351,20 @@ export const translations = {
       telegram: "Telegram",
       whatsapp: "WhatsApp",
       email: "Email"
+    },
+    faq: {
+      title: "Часто Задаваемые Вопросы",
+      subtitle: "Все, что вам нужно знать о торговой системе Tenzor.",
+      q1: "Работает ли Tenzor на всех рынках?",
+      a1: "Нет, он работает исключительно с конкретными криптоактивами, которые подобраны для этой стратегии (XRP, SOL, ADA).",
+      q2: "Есть ли пробный период?",
+      a2: "Мы предлагаем 7-дневную гарантию возврата средств на все покупки.",
+      q3: "Нужен ли торговый опыт?",
+      a3: "Нет, Tenzor разработан как для начинающих, так и для профессионалов.",
+      q4: "Какую платформу использует Tenzor?",
+      a4: "Tenzor безупречно интегрируется с TradingView.",
+      q5: "Доступна ли поддержка?",
+      a5: "Поддержка 24/7 через Discord и электронную почту для всех подписчиков."
     }
   }
 };
