@@ -165,10 +165,19 @@ export function AnomalousMatterHero({
   description?: React.ReactNode;
 }) {
   return <section role="banner" className="relative w-full h-screen bg-background text-foreground overflow-hidden">
-      {/* Dark orange gradient in center - multiple layers for smooth blend */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="absolute w-[1000px] h-[1000px] rounded-full bg-gradient-radial from-orange-900/35 via-orange-950/20 via-orange-950/10 to-transparent blur-[120px]" />
-        <div className="absolute w-[800px] h-[800px] rounded-full bg-gradient-radial from-orange-800/25 via-orange-900/15 to-transparent blur-[100px]" />
+      {/* Dark orange gradient - multiple layers with different shapes and positions */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* Center ellipse */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[600px] rounded-full bg-gradient-radial from-orange-900/18 via-orange-950/10 via-orange-950/5 to-transparent blur-[120px]" />
+        
+        {/* Top left accent */}
+        <div className="absolute -top-20 -left-20 w-[600px] h-[800px] rounded-full bg-gradient-radial from-orange-800/12 via-orange-900/8 to-transparent blur-[100px]" />
+        
+        {/* Bottom right accent */}
+        <div className="absolute -bottom-40 -right-40 w-[700px] h-[700px] rounded-full bg-gradient-radial from-orange-700/10 via-orange-900/6 to-transparent blur-[110px]" />
+        
+        {/* Middle right accent */}
+        <div className="absolute top-1/3 -right-20 w-[500px] h-[900px] rounded-full bg-gradient-radial from-orange-800/8 via-transparent to-transparent blur-[90px]" />
       </div>
       <div className="flex flex-col md:flex-row items-center justify-between h-full">
         {/* Left side - Text content */}
