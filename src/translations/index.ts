@@ -14,13 +14,15 @@ export const translations = {
       imageAlt: "Tenzor Trading Indicator Chart"
     },
     whatWeCreated: {
-      title: "What is Alladin?",
-      feature1Title: "AI + Quantum approach",
-      feature1Desc: "Probabilistic inference using quantum-inspired algorithms to model infinite market scenarios simultaneously.",
-      feature2Title: "Monte Carlo Simulation engine",
-      feature2Desc: "Run thousands of parallel simulations to stress-test every decision before execution.",
-      feature3Title: "Semantic Perplexity Social Scan",
-      feature3Desc: "NLP-powered sentiment analysis of 100M+ social signals daily to detect market-moving narratives."
+      title: "Why Tenzor?",
+      feature1Title: "Transparent Deals",
+      feature1Desc: "Every trade is backed by clear logic and proven math.",
+      feature2Title: "Math-Based Strategy",
+      feature2Desc: "No emotions. Just algorithms that deliver results.",
+      feature3Title: "Simplicity",
+      feature3Desc: "Install once. Follow signals. Trade with ease.",
+      feature4Title: "Buy & Sell by Signal",
+      feature4Desc: "Clear entry points. Precise exit strategies."
     },
     whatAladinCanDo: {
       title: "What Aladin can do",
@@ -122,13 +124,15 @@ export const translations = {
       imageAlt: "Графік Торгового Індикатора Tenzor"
     },
     whatWeCreated: {
-      title: "Що таке Alladin?",
-      feature1Title: "AI + Квантовий підхід",
-      feature1Desc: "Ймовірнісний висновок з використанням квантово-натхненних алгоритмів для одночасного моделювання нескінченних ринкових сценаріїв.",
-      feature2Title: "Двигун Монте-Карло Симуляції",
-      feature2Desc: "Запуск тисяч паралельних симуляцій для стрес-тестування кожного рішення перед виконанням.",
-      feature3Title: "Семантичне Сканування Соціальних Мереж",
-      feature3Desc: "Аналіз настроїв на базі NLP понад 100М+ соціальних сигналів щодня для виявлення ринкових наративів."
+      title: "Чому Tenzor?",
+      feature1Title: "Прозорі Угоди",
+      feature1Desc: "Кожна угода підтримується чіткою логікою та перевіреною математикою.",
+      feature2Title: "Математична Стратегія",
+      feature2Desc: "Без емоцій. Тільки алгоритми, які дають результати.",
+      feature3Title: "Простота",
+      feature3Desc: "Встановіть один раз. Слідуйте сигналам. Торгуйте з легкістю.",
+      feature4Title: "Купівля та Продаж за Сигналом",
+      feature4Desc: "Чіткі точки входу. Точні стратегії виходу."
     },
     whatAladinCanDo: {
       title: "Що вміє Aladin",
@@ -230,13 +234,15 @@ export const translations = {
       imageAlt: "График Торгового Бота Alladin"
     },
     whatWeCreated: {
-      title: "Что такое Alladin?",
-      feature1Title: "AI + Квантовый подход",
-      feature1Desc: "Вероятностный вывод с использованием квантово-вдохновленных алгоритмов для одновременного моделирования бесконечных рыночных сценариев.",
-      feature2Title: "Движок Монте-Карло Симуляции",
-      feature2Desc: "Запуск тысяч параллельных симуляций для стресс-тестирования каждого решения перед выполнением.",
-      feature3Title: "Семантическое Сканирование Социальных Сетей",
-      feature3Desc: "Анализ настроений на базе NLP более 100М+ социальных сигналов ежедневно для выявления рыночных нарративов."
+      title: "Почему Tenzor?",
+      feature1Title: "Прозрачные Сделки",
+      feature1Desc: "Каждая сделка подкреплена четкой логикой и проверенной математикой.",
+      feature2Title: "Математическая Стратегия",
+      feature2Desc: "Без эмоций. Только алгоритмы, которые дают результаты.",
+      feature3Title: "Простота",
+      feature3Desc: "Установите один раз. Следуйте сигналам. Торгуйте с легкостью.",
+      feature4Title: "Покупка и Продажа по Сигналу",
+      feature4Desc: "Четкие точки входа. Точные стратегии выхода."
     },
     whatAladinCanDo: {
       title: "Что умеет Aladin",
