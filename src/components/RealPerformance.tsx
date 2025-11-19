@@ -35,9 +35,9 @@ export function RealPerformance() {
   }, []);
 
   const stats = [
-    { value: 80, suffix: "%", label: "Win Rate" },
-    { value: 2.0, suffix: "+", label: "Profit Factor" },
-    { value: 5, suffix: "K+", label: "Active Traders" },
+    { value: 80, suffix: "%", label: t.realPerformance.stat1Label },
+    { value: 2.0, suffix: "+", label: t.realPerformance.stat2Label },
+    { value: 5, suffix: "K+", label: t.realPerformance.stat3Label },
   ];
 
   return (

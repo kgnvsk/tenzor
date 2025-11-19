@@ -1,30 +1,35 @@
 import { ModernPricingPage, PricingCardProps } from "@/components/ui/animated-glassy-pricing";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { useTranslation } from "@/translations";
 
 export function Pricing() {
+  const { language } = useLanguage();
+  const t = useTranslation(language);
+
   const pricingPlans: PricingCardProps[] = [
     {
-      planName: "Monthly",
-      description: "per month",
-      price: "99",
-      features: ["Full access to all features", "Priority support", "Cancel anytime"],
-      buttonText: "Buy Now",
+      planName: t.pricing.monthly,
+      description: t.pricing.monthlyDesc,
+      price: t.pricing.monthlyPrice,
+      features: [t.pricing.feature1, t.pricing.feature2, t.pricing.feature3Monthly],
+      buttonText: t.pricing.buttonText,
       buttonVariant: "secondary",
     },
     {
-      planName: "Quarterly",
-      description: "per 3 months",
-      price: "249",
-      features: ["Full access to all features", "Priority support", "Save 16%", "Best value"],
-      buttonText: "Buy Now",
+      planName: t.pricing.quarterly,
+      description: t.pricing.quarterlyDesc,
+      price: t.pricing.quarterlyPrice,
+      features: [t.pricing.feature1, t.pricing.feature2, t.pricing.feature3Quarterly, t.pricing.feature4Quarterly],
+      buttonText: t.pricing.buttonText,
       isPopular: true,
       buttonVariant: "primary",
     },
     {
-      planName: "Yearly",
-      description: "save $189",
-      price: "999",
-      features: ["Full access to all features", "Priority support", "Save 17%", "Maximum savings"],
-      buttonText: "Buy Now",
+      planName: t.pricing.yearly,
+      description: t.pricing.yearlyDesc,
+      price: t.pricing.yearlyPrice,
+      features: [t.pricing.feature1, t.pricing.feature2, t.pricing.feature3Yearly, t.pricing.feature4Yearly],
+      buttonText: t.pricing.buttonText,
       buttonVariant: "secondary",
     },
   ];
@@ -32,8 +37,8 @@ export function Pricing() {
   return (
     <section className="relative w-full">
       <ModernPricingPage
-        title={<>Simple Pricing</>}
-        subtitle="Pay with crypto."
+        title={<>{t.pricing.title}</>}
+        subtitle={t.pricing.subtitle}
         plans={pricingPlans}
         showAnimatedBackground={true}
       />
