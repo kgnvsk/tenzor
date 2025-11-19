@@ -1,19 +1,15 @@
 import React, { useEffect, useMemo, useState } from "react";
-
 const INTRO_STYLE_ID = "faq1-animations";
-
 interface FAQItem {
   question: string;
   answer: string;
   meta?: string;
 }
-
 interface FAQ1Props {
   title?: string;
   subtitle?: string;
   faqs: FAQItem[];
 }
-
 const palettes = {
   dark: {
     surface: "bg-background text-foreground",
@@ -27,15 +23,17 @@ const palettes = {
     glow: "rgba(255, 133, 51, 0.08)",
     aurora: "radial-gradient(ellipse 50% 100% at 10% 0%, rgba(255, 133, 51, 0.15), transparent 65%), #000000",
     shadow: "shadow-[0_36px_140px_-60px_rgba(10,10,10,0.95)]",
-    overlay: "linear-gradient(130deg, rgba(255,133,51,0.04) 0%, transparent 65%)",
-  },
+    overlay: "linear-gradient(130deg, rgba(255,133,51,0.04) 0%, transparent 65%)"
+  }
 };
-
-export function FAQ1({ title = "Focus on the signal, not the noise.", subtitle = "Everything you need to know about Tenzor", faqs }: FAQ1Props) {
+export function FAQ1({
+  title = "Focus on the signal, not the noise.",
+  subtitle = "Everything you need to know about Tenzor",
+  faqs
+}: FAQ1Props) {
   const [introReady, setIntroReady] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const [hasEntered, setHasEntered] = useState(false);
-
   useEffect(() => {
     if (typeof document === "undefined") return;
     if (document.getElementById(INTRO_STYLE_ID)) return;
@@ -149,14 +147,11 @@ export function FAQ1({ title = "Focus on the signal, not the noise.", subtitle =
         animation: faq1-fade-up 860ms cubic-bezier(0.22, 0.68, 0, 1) forwards;
       }
     `;
-
     document.head.appendChild(style);
-
     return () => {
       if (style.parentNode) style.remove();
     };
   }, []);
-
   useEffect(() => {
     if (typeof window === "undefined") {
       setIntroReady(true);
@@ -165,57 +160,43 @@ export function FAQ1({ title = "Focus on the signal, not the noise.", subtitle =
     const frame = window.requestAnimationFrame(() => setIntroReady(true));
     return () => window.cancelAnimationFrame(frame);
   }, []);
-
   const palette = useMemo(() => palettes.dark, []);
-
-  const toggleQuestion = (index: number) => setActiveIndex((prev) => (prev === index ? -1 : index));
-
+  const toggleQuestion = (index: number) => setActiveIndex(prev => prev === index ? -1 : index);
   useEffect(() => {
     if (typeof window === "undefined") {
       setHasEntered(true);
       return;
     }
-
     let timeout: number;
     const onLoad = () => {
       timeout = window.setTimeout(() => setHasEntered(true), 120);
     };
-
     if (document.readyState === "complete") {
       onLoad();
     } else {
-      window.addEventListener("load", onLoad, { once: true });
+      window.addEventListener("load", onLoad, {
+        once: true
+      });
     }
-
     return () => {
       window.removeEventListener("load", onLoad);
       window.clearTimeout(timeout);
     };
   }, []);
-
   const setCardGlow = (event: React.MouseEvent<HTMLLIElement>) => {
     const target = event.currentTarget;
     const rect = target.getBoundingClientRect();
     target.style.setProperty("--faq-x", `${event.clientX - rect.left}px`);
     target.style.setProperty("--faq-y", `${event.clientY - rect.top}px`);
   };
-
   const clearCardGlow = (event: React.MouseEvent<HTMLLIElement>) => {
     const target = event.currentTarget;
     target.style.removeProperty("--faq-x");
     target.style.removeProperty("--faq-y");
   };
-
-  return (
-    <div className={`relative min-h-screen w-full overflow-hidden transition-colors duration-700 ${palette.surface}`}>
-      <section
-        className={`relative z-10 mx-auto flex max-w-4xl flex-col gap-12 px-6 py-24 lg:max-w-5xl lg:px-12 ${
-          hasEntered ? "faq1-fade--ready" : "faq1-fade"
-        }`}
-      >
-        <div
-          className={`faq1-intro ${introReady ? "faq1-intro--active" : ""}`}
-        >
+  return <div className={`relative min-h-screen w-full overflow-hidden transition-colors duration-700 ${palette.surface}`}>
+      <section className={`relative z-10 mx-auto flex max-w-4xl flex-col gap-12 px-6 py-24 lg:max-w-5xl lg:px-12 ${hasEntered ? "faq1-fade--ready" : "faq1-fade"}`}>
+        <div className={`faq1-intro ${introReady ? "faq1-intro--active" : ""}`}>
           <span className="faq1-intro__beam" aria-hidden="true" />
           <span className="faq1-intro__pulse" aria-hidden="true" />
           <span className="faq1-intro__label">FAQ</span>
@@ -225,7 +206,7 @@ export function FAQ1({ title = "Focus on the signal, not the noise.", subtitle =
 
         <header className="flex flex-col gap-8">
           <div className="space-y-4">
-            <p className={`text-xs uppercase tracking-[0.35em] ${palette.muted}`}>Questions</p>
+            
             <h1 className={`text-4xl font-semibold leading-tight md:text-5xl ${palette.heading}`}>
               {title}
             </h1>
@@ -237,49 +218,20 @@ export function FAQ1({ title = "Focus on the signal, not the noise.", subtitle =
 
         <ul className="space-y-4">
           {faqs.map((item, index) => {
-            const open = activeIndex === index;
-            const panelId = `faq-panel-${index}`;
-            const buttonId = `faq-trigger-${index}`;
+          const open = activeIndex === index;
+          const panelId = `faq-panel-${index}`;
+          const buttonId = `faq-trigger-${index}`;
+          return <li key={item.question} className={`group relative overflow-hidden rounded-3xl border backdrop-blur-xl transition-all duration-500 hover:-translate-y-0.5 focus-within:-translate-y-0.5 ${palette.border} ${palette.panel} ${palette.shadow}`} onMouseMove={setCardGlow} onMouseLeave={clearCardGlow}>
+                <div className={`pointer-events-none absolute inset-0 transition-opacity duration-500 ${open ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`} style={{
+              background: `radial-gradient(240px circle at var(--faq-x, 50%) var(--faq-y, 50%), ${palette.glow}, transparent 70%)`
+            }} />
 
-            return (
-              <li
-                key={item.question}
-                className={`group relative overflow-hidden rounded-3xl border backdrop-blur-xl transition-all duration-500 hover:-translate-y-0.5 focus-within:-translate-y-0.5 ${palette.border} ${palette.panel} ${palette.shadow}`}
-                onMouseMove={setCardGlow}
-                onMouseLeave={clearCardGlow}
-              >
-                <div
-                  className={`pointer-events-none absolute inset-0 transition-opacity duration-500 ${
-                    open ? "opacity-100" : "opacity-0 group-hover:opacity-100"
-                  }`}
-                  style={{
-                    background: `radial-gradient(240px circle at var(--faq-x, 50%) var(--faq-y, 50%), ${palette.glow}, transparent 70%)`,
-                  }}
-                />
-
-                <button
-                  type="button"
-                  id={buttonId}
-                  aria-controls={panelId}
-                  aria-expanded={open}
-                  onClick={() => toggleQuestion(index)}
-                  style={{ "--faq-outline": "rgba(255,255,255,0.35)" } as React.CSSProperties}
-                  className="relative flex w-full items-start gap-6 px-8 py-7 text-left transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--faq-outline)]"
-                >
-                  <span
-                    className={`relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full border transition-all duration-500 group-hover:scale-105 ${palette.iconRing} ${palette.iconSurface}`}
-                  >
-                    <span
-                      className={`pointer-events-none absolute inset-0 rounded-full border opacity-30 ${
-                        palette.iconRing
-                      } ${open ? "animate-ping" : ""}`}
-                    />
-                    <svg
-                      className={`relative h-5 w-5 transition-transform duration-500 ${palette.icon} ${open ? "rotate-45" : ""}`}
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
+                <button type="button" id={buttonId} aria-controls={panelId} aria-expanded={open} onClick={() => toggleQuestion(index)} style={{
+              "--faq-outline": "rgba(255,255,255,0.35)"
+            } as React.CSSProperties} className="relative flex w-full items-start gap-6 px-8 py-7 text-left transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--faq-outline)]">
+                  <span className={`relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full border transition-all duration-500 group-hover:scale-105 ${palette.iconRing} ${palette.iconSurface}`}>
+                    <span className={`pointer-events-none absolute inset-0 rounded-full border opacity-30 ${palette.iconRing} ${open ? "animate-ping" : ""}`} />
+                    <svg className={`relative h-5 w-5 transition-transform duration-500 ${palette.icon} ${open ? "rotate-45" : ""}`} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M12 5v14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                       <path d="M5 12h14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                     </svg>
@@ -290,36 +242,22 @@ export function FAQ1({ title = "Focus on the signal, not the noise.", subtitle =
                       <h2 className={`text-lg font-medium leading-tight sm:text-xl ${palette.heading}`}>
                         {item.question}
                       </h2>
-                      {item.meta && (
-                        <span
-                          className={`inline-flex w-fit items-center rounded-full border px-3 py-1 text-[10px] uppercase tracking-[0.35em] transition-opacity duration-300 sm:ml-auto ${palette.border} ${palette.muted}`}
-                        >
+                      {item.meta && <span className={`inline-flex w-fit items-center rounded-full border px-3 py-1 text-[10px] uppercase tracking-[0.35em] transition-opacity duration-300 sm:ml-auto ${palette.border} ${palette.muted}`}>
                           {item.meta}
-                        </span>
-                      )}
+                        </span>}
                     </div>
 
-                    <div
-                      id={panelId}
-                      role="region"
-                      aria-labelledby={buttonId}
-                      className={`overflow-hidden text-sm leading-relaxed transition-[max-height] duration-500 ease-out ${
-                        open ? "max-h-64" : "max-h-0"
-                      } ${palette.muted}`}
-                    >
+                    <div id={panelId} role="region" aria-labelledby={buttonId} className={`overflow-hidden text-sm leading-relaxed transition-[max-height] duration-500 ease-out ${open ? "max-h-64" : "max-h-0"} ${palette.muted}`}>
                       <p className="pr-2">
                         {item.answer}
                       </p>
                     </div>
                   </div>
                 </button>
-              </li>
-            );
-          })}
+              </li>;
+        })}
         </ul>
       </section>
-    </div>
-  );
+    </div>;
 }
-
 export default FAQ1;
