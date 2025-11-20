@@ -5,6 +5,8 @@ import { GetStartedButton } from "@/components/ui/get-started-button";
 export function GenerativeArtScene() {
   const mountRef = useRef<HTMLDivElement>(null);
   const lightRef = useRef<THREE.PointLight | null>(null);
+  const isVisibleRef = useRef<boolean>(true);
+  
   useEffect(() => {
     const currentMount = mountRef.current;
     if (!currentMount) return;
@@ -16,17 +18,17 @@ export function GenerativeArtScene() {
     const camera = new THREE.PerspectiveCamera(75, currentMount.clientWidth / currentMount.clientHeight, 0.1, 1000);
     camera.position.z = 3;
     const renderer = new THREE.WebGLRenderer({
-      antialias: !isMobile, // Disable antialiasing on mobile
+      antialias: false, // Disable antialiasing completely for better performance
       alpha: true,
-      powerPreference: "high-performance" // Use high-performance mode
+      powerPreference: "high-performance"
     });
     renderer.setSize(currentMount.clientWidth, currentMount.clientHeight);
-    // Limit pixel ratio on mobile devices for better performance
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1.5 : 2));
+    // Lower pixel ratio for better performance
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1 : 1.5));
     currentMount.appendChild(renderer.domElement);
     
-    // Reduce geometry complexity on mobile (64 -> 32 segments)
-    const geometry = new THREE.IcosahedronGeometry(1.2, isMobile ? 32 : 64);
+    // Significantly reduce geometry complexity on mobile (16 vs 48 segments)
+    const geometry = new THREE.IcosahedronGeometry(1.2, isMobile ? 16 : 48);
     const material = new THREE.ShaderMaterial({
       uniforms: {
         time: {
@@ -124,12 +126,34 @@ export function GenerativeArtScene() {
     pointLight.position.set(0, 0, 5);
     lightRef.current = pointLight;
     scene.add(pointLight);
+    
+    // Intersection Observer to pause animation when not visible
+    const observer = new IntersectionObserver(
+      (entries) => {
+        isVisibleRef.current = entries[0].isIntersecting;
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(currentMount);
+    
+    // Throttle animation on mobile (30 FPS instead of 60)
+    let lastFrameTime = 0;
+    const targetFPS = isMobile ? 30 : 60;
+    const frameDuration = 1000 / targetFPS;
+    
     let frameId: number;
     const animate = (t: number) => {
-      material.uniforms.time.value = t * 0.0003;
-      mesh.rotation.y += 0.0005;
-      mesh.rotation.x += 0.0002;
-      renderer.render(scene, camera);
+      // Only animate if visible
+      if (isVisibleRef.current) {
+        // Throttle frame rate on mobile
+        if (t - lastFrameTime >= frameDuration) {
+          material.uniforms.time.value = t * 0.0003;
+          mesh.rotation.y += 0.0005;
+          mesh.rotation.x += 0.0002;
+          renderer.render(scene, camera);
+          lastFrameTime = t;
+        }
+      }
       frameId = requestAnimationFrame(animate);
     };
     animate(0);
@@ -138,24 +162,43 @@ export function GenerativeArtScene() {
       camera.updateProjectionMatrix();
       renderer.setSize(currentMount.clientWidth, currentMount.clientHeight);
     };
+    // Throttled mouse move handler (only on desktop)
+    let mouseMoveThrottle: number | null = null;
     const handleMouseMove = (e: MouseEvent) => {
-      const x = e.clientX / window.innerWidth * 2 - 1;
-      const y = -(e.clientY / window.innerHeight) * 2 + 1;
-      const vec = new THREE.Vector3(x, y, 0.5).unproject(camera);
-      const dir = vec.sub(camera.position).normalize();
-      const dist = -camera.position.z / dir.z;
-      const pos = camera.position.clone().add(dir.multiplyScalar(dist));
-      if (lightRef.current) {
-        lightRef.current.position.copy(pos);
-        material.uniforms.pointLightPos.value = pos;
+      if (isMobile) return; // Disable on mobile for performance
+      
+      if (mouseMoveThrottle === null) {
+        mouseMoveThrottle = window.setTimeout(() => {
+          const x = e.clientX / window.innerWidth * 2 - 1;
+          const y = -(e.clientY / window.innerHeight) * 2 + 1;
+          const vec = new THREE.Vector3(x, y, 0.5).unproject(camera);
+          const dir = vec.sub(camera.position).normalize();
+          const dist = -camera.position.z / dir.z;
+          const pos = camera.position.clone().add(dir.multiplyScalar(dist));
+          if (lightRef.current) {
+            lightRef.current.position.copy(pos);
+            material.uniforms.pointLightPos.value = pos;
+          }
+          mouseMoveThrottle = null;
+        }, 50); // Throttle to ~20fps
       }
     };
+    
     window.addEventListener("resize", handleResize);
-    window.addEventListener("mousemove", handleMouseMove);
+    if (!isMobile) {
+      window.addEventListener("mousemove", handleMouseMove);
+    }
+    
     return () => {
+      observer.disconnect();
       cancelAnimationFrame(frameId);
       window.removeEventListener("resize", handleResize);
-      window.removeEventListener("mousemove", handleMouseMove);
+      if (!isMobile) {
+        window.removeEventListener("mousemove", handleMouseMove);
+      }
+      if (mouseMoveThrottle) {
+        clearTimeout(mouseMoveThrottle);
+      }
       if (currentMount && renderer.domElement) {
         currentMount.removeChild(renderer.domElement);
       }
