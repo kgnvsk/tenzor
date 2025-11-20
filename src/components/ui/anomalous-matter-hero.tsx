@@ -176,7 +176,7 @@ export function AnomalousMatterHero({
   buttonBuy?: string;
   buttonJoin?: string;
 }) {
-  return <section role="banner" className="relative w-full h-screen bg-gradient-to-b from-background via-background to-black text-foreground overflow-hidden">
+  return <section role="banner" className="relative w-full min-h-screen md:h-screen bg-gradient-to-b from-background via-background to-black text-foreground overflow-hidden">
       {/* Subtle orange gradient in top-left area */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Main glow - top left */}
@@ -188,26 +188,26 @@ export function AnomalousMatterHero({
         {/* Subtle side accent */}
         <div className="absolute top-1/4 -left-40 w-[500px] h-[700px] rounded-full bg-gradient-radial from-orange-500/14 via-orange-700/8 to-transparent blur-[110px]" />
       </div>
-      <div className="flex flex-col md:flex-row items-center justify-between h-full">
+      <div className="flex flex-col md:flex-row items-center justify-between h-full py-8 md:py-0">
         {/* Left side - Text content */}
-        <div className="w-full md:w-1/2 h-full flex flex-col justify-center px-8 md:px-16 lg:px-24 z-20">
+        <div className="w-full md:w-1/2 h-auto md:h-full flex flex-col justify-center px-6 md:px-16 lg:px-24 z-20 pb-8 md:pb-0">
           <div className="max-w-2xl animate-fade-in">
-            <h1 className="text-sm font-mono tracking-widest text-accent/80 uppercase mb-6">
+            <h1 className="text-xs md:text-sm font-mono tracking-widest text-accent/80 uppercase mb-4 md:mb-6">
               {title}
             </h1>
-            <p className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8">
+            <p className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 md:mb-8">
               {subtitle}
             </p>
             
-            <div className="flex gap-4 mt-8">
-              <a href="https://t.me/tenzor_pay_bot" target="_blank" rel="noopener noreferrer">
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mt-6 md:mt-8 w-full sm:w-auto">
+              <a href="https://t.me/tenzor_pay_bot" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
                 <AnimatedGenerateButton
                   labelIdle={buttonBuy}
                   labelActive="Processing"
                   highlightHueDeg={30}
                 />
               </a>
-              <a href="#contact">
+              <a href="#contact" className="w-full sm:w-auto">
                 <GetStartedButton>{buttonJoin}</GetStartedButton>
               </a>
             </div>
@@ -215,7 +215,7 @@ export function AnomalousMatterHero({
         </div>
 
         {/* Right side - 3D Scene */}
-        <div className="w-full md:w-1/2 h-full relative">
+        <div className="w-full md:w-1/2 h-[300px] md:h-full relative">
           <Suspense fallback={<div className="w-full h-full" />}>
             <GenerativeArtScene />
           </Suspense>
