@@ -11,15 +11,15 @@ export function ContactSection() {
       icon: MessageCircle,
       label: t.contact.discord,
       link: "https://discord.com/invite/DWS7HPSW",
-      bgColor: "bg-[#5865F2]",
-      hoverColor: "hover:bg-[#4752C4]",
+      bgColor: "bg-gradient-to-br from-orange-500 to-orange-600",
+      hoverColor: "hover:from-orange-600 hover:to-orange-700",
     },
     {
       icon: Send,
       label: t.contact.telegram,
       link: "https://t.me/tenzor_public",
-      bgColor: "bg-[#0088cc]",
-      hoverColor: "hover:bg-[#006699]",
+      bgColor: "bg-gradient-to-br from-orange-400 to-orange-500",
+      hoverColor: "hover:from-orange-500 hover:to-orange-600",
     },
   ];
 
