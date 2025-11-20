@@ -8,17 +8,25 @@ export function GenerativeArtScene() {
   useEffect(() => {
     const currentMount = mountRef.current;
     if (!currentMount) return;
+    
+    // Mobile detection for performance optimization
+    const isMobile = window.innerWidth <= 768;
+    
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, currentMount.clientWidth / currentMount.clientHeight, 0.1, 1000);
     camera.position.z = 3;
     const renderer = new THREE.WebGLRenderer({
-      antialias: true,
-      alpha: true
+      antialias: !isMobile, // Disable antialiasing on mobile
+      alpha: true,
+      powerPreference: "high-performance" // Use high-performance mode
     });
     renderer.setSize(currentMount.clientWidth, currentMount.clientHeight);
-    renderer.setPixelRatio(window.devicePixelRatio);
+    // Limit pixel ratio on mobile devices for better performance
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1.5 : 2));
     currentMount.appendChild(renderer.domElement);
-    const geometry = new THREE.IcosahedronGeometry(1.2, 64);
+    
+    // Reduce geometry complexity on mobile (64 -> 32 segments)
+    const geometry = new THREE.IcosahedronGeometry(1.2, isMobile ? 32 : 64);
     const material = new THREE.ShaderMaterial({
       uniforms: {
         time: {
