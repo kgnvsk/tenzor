@@ -176,7 +176,7 @@ export function AnomalousMatterHero({
   buttonBuy?: string;
   buttonJoin?: string;
 }) {
-  return <section role="banner" className="relative w-full min-h-screen md:h-screen bg-gradient-to-b from-background via-background to-black text-foreground overflow-hidden">
+  return <section role="banner" className="relative w-full min-h-screen lg:h-screen bg-gradient-to-b from-background via-background to-black text-foreground overflow-hidden">
       {/* Subtle orange gradient in top-left area */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Main glow - top left */}
@@ -188,9 +188,9 @@ export function AnomalousMatterHero({
         {/* Subtle side accent */}
         <div className="absolute top-1/4 -left-40 w-[500px] h-[700px] rounded-full bg-gradient-radial from-orange-500/14 via-orange-700/8 to-transparent blur-[110px]" />
       </div>
-      <div className="flex flex-col md:flex-row items-center justify-between h-full py-8 md:py-0">
+      <div className="flex flex-col lg:flex-row items-center justify-between h-full py-8 lg:py-0">
         {/* Left side - Text content */}
-        <div className="w-full md:w-1/2 h-auto md:h-full flex flex-col justify-center px-6 md:px-16 lg:px-24 z-20">
+        <div className="w-full lg:w-1/2 h-auto lg:h-full flex flex-col justify-center px-6 md:px-16 lg:px-24 z-20">
           {/* Title section - order 1 on mobile */}
           <div className="max-w-2xl animate-fade-in order-1">
             <h1 className="text-xs md:text-sm font-mono tracking-widest text-accent/80 uppercase mb-4 md:mb-6">
@@ -202,7 +202,7 @@ export function AnomalousMatterHero({
           </div>
 
           {/* 3D Scene on mobile/tablet - order 2, hidden on desktop */}
-          <div className="w-full h-[300px] relative md:hidden order-2 my-6">
+          <div className="w-full h-[300px] md:h-[400px] relative lg:hidden order-2 my-6">
             <Suspense fallback={<div className="w-full h-full" />}>
               <GenerativeArtScene />
             </Suspense>
@@ -210,7 +210,7 @@ export function AnomalousMatterHero({
 
           {/* Buttons section - order 3 on mobile */}
           <div className="max-w-2xl order-3">
-            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mt-0 md:mt-8 w-full sm:w-auto">
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mt-0 lg:mt-8 w-full sm:w-auto">
               <a href="https://t.me/tenzor_pay_bot" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
                 <AnimatedGenerateButton
                   labelIdle={buttonBuy}
@@ -226,7 +226,7 @@ export function AnomalousMatterHero({
         </div>
 
         {/* Right side - 3D Scene (desktop only) */}
-        <div className="hidden md:block md:w-1/2 h-full relative">
+        <div className="hidden lg:block lg:w-1/2 h-full relative">
           <Suspense fallback={<div className="w-full h-full" />}>
             <GenerativeArtScene />
           </Suspense>
