@@ -190,16 +190,27 @@ export function AnomalousMatterHero({
       </div>
       <div className="flex flex-col md:flex-row items-center justify-between h-full py-8 md:py-0">
         {/* Left side - Text content */}
-        <div className="w-full md:w-1/2 h-auto md:h-full flex flex-col justify-center px-6 md:px-16 lg:px-24 z-20 pb-8 md:pb-0">
-          <div className="max-w-2xl animate-fade-in">
+        <div className="w-full md:w-1/2 h-auto md:h-full flex flex-col justify-center px-6 md:px-16 lg:px-24 z-20">
+          {/* Title section - order 1 on mobile */}
+          <div className="max-w-2xl animate-fade-in order-1">
             <h1 className="text-xs md:text-sm font-mono tracking-widest text-accent/80 uppercase mb-4 md:mb-6">
               {title}
             </h1>
             <p className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 md:mb-8">
               {subtitle}
             </p>
-            
-            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mt-6 md:mt-8 w-full sm:w-auto">
+          </div>
+
+          {/* 3D Scene on mobile/tablet - order 2, hidden on desktop */}
+          <div className="w-full h-[300px] relative md:hidden order-2 my-6">
+            <Suspense fallback={<div className="w-full h-full" />}>
+              <GenerativeArtScene />
+            </Suspense>
+          </div>
+
+          {/* Buttons section - order 3 on mobile */}
+          <div className="max-w-2xl order-3">
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mt-0 md:mt-8 w-full sm:w-auto">
               <a href="https://t.me/tenzor_pay_bot" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
                 <AnimatedGenerateButton
                   labelIdle={buttonBuy}
@@ -214,8 +225,8 @@ export function AnomalousMatterHero({
           </div>
         </div>
 
-        {/* Right side - 3D Scene */}
-        <div className="w-full md:w-1/2 h-[300px] md:h-full relative">
+        {/* Right side - 3D Scene (desktop only) */}
+        <div className="hidden md:block md:w-1/2 h-full relative">
           <Suspense fallback={<div className="w-full h-full" />}>
             <GenerativeArtScene />
           </Suspense>
