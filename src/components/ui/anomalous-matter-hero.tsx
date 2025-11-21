@@ -253,7 +253,7 @@ export function AnomalousMatterHero({
 
           {/* Buttons section - order 3 on mobile */}
           <div className="max-w-2xl order-3">
-            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mt-0 lg:mt-8 w-full sm:w-auto">
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mt-0 lg:mt-8 w-full sm:w-auto items-center sm:items-start">
               <a href="https://t.me/tenzor_pay_bot" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
                 <AnimatedGenerateButton
                   labelIdle={buttonBuy}
