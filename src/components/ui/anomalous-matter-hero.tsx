@@ -244,11 +244,9 @@ export function AnomalousMatterHero({
             </p>
           </div>
 
-          {/* 3D Scene on mobile/tablet - order 2, hidden on desktop */}
+          {/* Lightweight gradient animation on mobile/tablet - order 2, hidden on desktop */}
           <div className="w-full h-[300px] md:h-[400px] relative lg:hidden order-2 my-6">
-            <Suspense fallback={<div className="w-full h-full" />}>
-              <GenerativeArtScene />
-            </Suspense>
+            <div className="w-full h-full rounded-2xl bg-gradient-to-br from-accent/20 via-accent/10 to-transparent animate-pulse" />
           </div>
 
           {/* Buttons section - order 3 on mobile */}
@@ -268,7 +266,7 @@ export function AnomalousMatterHero({
           </div>
         </div>
 
-        {/* Right side - 3D Scene (desktop only) */}
+        {/* Right side - 3D Scene (desktop only) or gradient (mobile) */}
         <div className="hidden lg:block lg:w-1/2 h-full relative">
           <Suspense fallback={<div className="w-full h-full" />}>
             <GenerativeArtScene />
