@@ -18,17 +18,19 @@ export function GenerativeArtScene() {
     const camera = new THREE.PerspectiveCamera(75, currentMount.clientWidth / currentMount.clientHeight, 0.1, 1000);
     camera.position.z = 3;
     const renderer = new THREE.WebGLRenderer({
-      antialias: false, // Disable antialiasing completely for better performance
+      antialias: false,
       alpha: true,
-      powerPreference: "high-performance"
+      powerPreference: "high-performance",
+      stencil: false,
+      depth: false
     });
     renderer.setSize(currentMount.clientWidth, currentMount.clientHeight);
-    // Lower pixel ratio for better performance
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1 : 1.5));
+    // Агрессивная оптимизация pixel ratio для мобильных
+    renderer.setPixelRatio(isMobile ? 0.75 : Math.min(window.devicePixelRatio, 1.5));
     currentMount.appendChild(renderer.domElement);
     
-    // Significantly reduce geometry complexity on mobile (16 vs 48 segments)
-    const geometry = new THREE.IcosahedronGeometry(1.2, isMobile ? 16 : 48);
+    // Максимально упрощенная геометрия на мобильных (8 vs 48 сегментов)
+    const geometry = new THREE.IcosahedronGeometry(1.2, isMobile ? 8 : 48);
     const material = new THREE.ShaderMaterial({
       uniforms: {
         time: {
@@ -41,7 +43,23 @@ export function GenerativeArtScene() {
           value: new THREE.Color("hsl(var(--accent))")
         }
       },
-      vertexShader: `
+      vertexShader: isMobile ? `
+                uniform float time;
+                varying vec3 vNormal;
+                varying vec3 vPosition;
+                
+                // Упрощенный noise для мобильных
+                float simpleNoise(vec3 p) {
+                    return fract(sin(dot(p, vec3(12.9898, 78.233, 45.164))) * 43758.5453);
+                }
+
+                void main() {
+                    vNormal = normal;
+                    vPosition = position;
+                    float displacement = simpleNoise(position * 2.0 + time * 0.5) * 0.15;
+                    vec3 newPosition = position + normal * displacement;
+                    gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0);
+                }` : `
                 uniform float time;
                 varying vec3 vNormal;
                 varying vec3 vPosition;
@@ -136,20 +154,21 @@ export function GenerativeArtScene() {
     );
     observer.observe(currentMount);
     
-    // Throttle animation on mobile (30 FPS instead of 60)
+    // Агрессивный throttle на мобильных (24 FPS вместо 60)
     let lastFrameTime = 0;
-    const targetFPS = isMobile ? 30 : 60;
+    const targetFPS = isMobile ? 24 : 60;
     const frameDuration = 1000 / targetFPS;
     
     let frameId: number;
     const animate = (t: number) => {
       // Only animate if visible
       if (isVisibleRef.current) {
-        // Throttle frame rate on mobile
+        // Throttle frame rate
         if (t - lastFrameTime >= frameDuration) {
           material.uniforms.time.value = t * 0.0003;
-          mesh.rotation.y += 0.0005;
-          mesh.rotation.x += 0.0002;
+          // Более медленная ротация на мобильных
+          mesh.rotation.y += isMobile ? 0.0003 : 0.0005;
+          mesh.rotation.x += isMobile ? 0.00015 : 0.0002;
           renderer.render(scene, camera);
           lastFrameTime = t;
         }
@@ -244,9 +263,11 @@ export function AnomalousMatterHero({
             </p>
           </div>
 
-          {/* Lightweight gradient animation on mobile/tablet - order 2, hidden on desktop */}
+          {/* 3D Scene on mobile/tablet - order 2, hidden on desktop */}
           <div className="w-full h-[300px] md:h-[400px] relative lg:hidden order-2 my-6">
-            <div className="w-full h-full rounded-2xl bg-gradient-to-br from-accent/20 via-accent/10 to-transparent animate-pulse" />
+            <Suspense fallback={<div className="w-full h-full rounded-2xl bg-accent/5 animate-pulse" />}>
+              <GenerativeArtScene />
+            </Suspense>
           </div>
 
           {/* Buttons section - order 3 on mobile */}
