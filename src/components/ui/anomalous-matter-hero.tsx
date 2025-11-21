@@ -20,17 +20,15 @@ export function GenerativeArtScene() {
     const renderer = new THREE.WebGLRenderer({
       antialias: false,
       alpha: true,
-      powerPreference: "high-performance",
-      stencil: false,
-      depth: false
+      powerPreference: "high-performance"
     });
     renderer.setSize(currentMount.clientWidth, currentMount.clientHeight);
-    // Агрессивная оптимизация pixel ratio для мобильных
-    renderer.setPixelRatio(isMobile ? 0.75 : Math.min(window.devicePixelRatio, 1.5));
+    // Lower pixel ratio for better performance
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1 : 1.5));
     currentMount.appendChild(renderer.domElement);
     
-    // Максимально упрощенная геометрия на мобильных (8 vs 48 сегментов)
-    const geometry = new THREE.IcosahedronGeometry(1.2, isMobile ? 8 : 48);
+    // Reduce geometry complexity on mobile (32 vs 48 segments)
+    const geometry = new THREE.IcosahedronGeometry(1.2, isMobile ? 32 : 48);
     const material = new THREE.ShaderMaterial({
       uniforms: {
         time: {
@@ -43,23 +41,7 @@ export function GenerativeArtScene() {
           value: new THREE.Color("hsl(var(--accent))")
         }
       },
-      vertexShader: isMobile ? `
-                uniform float time;
-                varying vec3 vNormal;
-                varying vec3 vPosition;
-                
-                // Упрощенный noise для мобильных
-                float simpleNoise(vec3 p) {
-                    return fract(sin(dot(p, vec3(12.9898, 78.233, 45.164))) * 43758.5453);
-                }
-
-                void main() {
-                    vNormal = normal;
-                    vPosition = position;
-                    float displacement = simpleNoise(position * 2.0 + time * 0.5) * 0.15;
-                    vec3 newPosition = position + normal * displacement;
-                    gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0);
-                }` : `
+      vertexShader: `
                 uniform float time;
                 varying vec3 vNormal;
                 varying vec3 vPosition;
@@ -154,21 +136,20 @@ export function GenerativeArtScene() {
     );
     observer.observe(currentMount);
     
-    // Агрессивный throttle на мобильных (24 FPS вместо 60)
+    // Throttle animation on mobile (30 FPS instead of 60)
     let lastFrameTime = 0;
-    const targetFPS = isMobile ? 24 : 60;
+    const targetFPS = isMobile ? 30 : 60;
     const frameDuration = 1000 / targetFPS;
     
     let frameId: number;
     const animate = (t: number) => {
       // Only animate if visible
       if (isVisibleRef.current) {
-        // Throttle frame rate
+        // Throttle frame rate on mobile
         if (t - lastFrameTime >= frameDuration) {
           material.uniforms.time.value = t * 0.0003;
-          // Более медленная ротация на мобильных
-          mesh.rotation.y += isMobile ? 0.0003 : 0.0005;
-          mesh.rotation.x += isMobile ? 0.00015 : 0.0002;
+          mesh.rotation.y += 0.0005;
+          mesh.rotation.x += 0.0002;
           renderer.render(scene, camera);
           lastFrameTime = t;
         }
