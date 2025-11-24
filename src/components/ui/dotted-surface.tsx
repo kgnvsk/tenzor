@@ -20,10 +20,6 @@ export function DottedSurface({ className, ...props }: DottedSurfaceProps) {
 
   useEffect(() => {
     if (!containerRef.current) return;
-    
-    // Disable on mobile for iOS performance optimization
-    const isMobile = window.innerWidth <= 768;
-    if (isMobile) return;
 
     const SEPARATION = 150;
     const AMOUNTX = 40;
