@@ -3,7 +3,7 @@ import { ChevronRight } from "lucide-react";
 
 export function GetStartedButton({ children = "Get Started" }: { children?: React.ReactNode }) {
   return (
-    <Button className="group relative overflow-hidden bg-black lg:hover:bg-black/90 text-white border border-border w-full sm:min-w-[260px] px-6 sm:px-8 py-3 h-auto text-base whitespace-nowrap" size="lg">
+    <Button className="group relative overflow-hidden bg-black active:bg-black focus:bg-black lg:hover:bg-black/90 text-white border border-border w-full sm:min-w-[260px] px-6 sm:px-8 py-3 h-auto text-base whitespace-nowrap" size="lg">
       <span className="mr-8 lg:group-hover:opacity-0 lg:transition-opacity lg:duration-500">
         {children}
       </span>
