@@ -28,7 +28,7 @@ export default function AnimatedGenerateButton({
   ariaLabel,
 }: AnimatedGenerateButtonProps) {
   return (
-    <div className={clsx("relative inline-block", className)} id={id}>
+    <div className={clsx("relative w-full", className)} id={id}>
       <button
         type={type}
         aria-label={ariaLabel || (generating ? labelActive : labelIdle)}
