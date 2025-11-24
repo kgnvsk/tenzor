@@ -260,8 +260,8 @@ export default function AnimatedGenerateButton({
           animation: none;
         }
 
-        /* Active - disabled on mobile */
-        @media (min-width: 768px) {
+        /* Active - disabled on mobile and tablets, only on desktop */
+        @media (min-width: 1024px) {
           .ui-anim-btn:active {
             border-color: hsla(var(--highlight-hue), 100%, 80%, 0.7);
             background-color: hsla(var(--highlight-hue), 50%, 20%, 0.5);
