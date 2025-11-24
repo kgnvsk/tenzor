@@ -138,29 +138,35 @@ export default function AnimatedGenerateButton({
         /* Letters */
         .ui-anim-letter {
           color: #ffffff88;
-          animation: ui-letter-anim 2s ease-in-out infinite;
-          transition: color var(--transition), text-shadow var(--transition), opacity var(--transition);
           will-change: transform, opacity, filter;
           transform: translateZ(0);
         }
 
-        @keyframes ui-letter-anim {
-          50% {
-            text-shadow: 0 0 3px #fff8;
-            color: #fff;
+        /* Desktop-only animations */
+        @media (min-width: 1024px) {
+          .ui-anim-letter {
+            animation: ui-letter-anim 2s ease-in-out infinite;
+            transition: color var(--transition), text-shadow var(--transition), opacity var(--transition);
           }
-        }
 
-        /* SVG flicker */
-        .ui-anim-btn-svg {
-          filter: drop-shadow(0 0 2px #fff9);
-          animation: ui-flicker 2s linear infinite;
-          animation-delay: 0.5s;
-        }
+          @keyframes ui-letter-anim {
+            50% {
+              text-shadow: 0 0 3px #fff8;
+              color: #fff;
+            }
+          }
 
-        @keyframes ui-flicker {
-          50% {
-            opacity: 0.3;
+          /* SVG flicker */
+          .ui-anim-btn-svg {
+            filter: drop-shadow(0 0 2px #fff9);
+            animation: ui-flicker 2s linear infinite;
+            animation-delay: 0.5s;
+          }
+
+          @keyframes ui-flicker {
+            50% {
+              opacity: 0.3;
+            }
           }
         }
 
@@ -289,11 +295,12 @@ export default function AnimatedGenerateButton({
           }
         }
 
-        /* Letter stagger delays 1:1 */
-        .ui-anim-txt-1 .ui-anim-letter:nth-child(1),
-        .ui-anim-txt-2 .ui-anim-letter:nth-child(1) {
-          animation-delay: 0s;
-        }
+        /* Letter stagger delays 1:1 - only on desktop */
+        @media (min-width: 1024px) {
+          .ui-anim-txt-1 .ui-anim-letter:nth-child(1),
+          .ui-anim-txt-2 .ui-anim-letter:nth-child(1) {
+            animation-delay: 0s;
+          }
         .ui-anim-txt-1 .ui-anim-letter:nth-child(2),
         .ui-anim-txt-2 .ui-anim-letter:nth-child(2) {
           animation-delay: 0.08s;
@@ -338,9 +345,10 @@ export default function AnimatedGenerateButton({
         .ui-anim-txt-2 .ui-anim-letter:nth-child(12) {
           animation-delay: 0.88s;
         }
-        .ui-anim-txt-1 .ui-anim-letter:nth-child(13),
-        .ui-anim-txt-2 .ui-anim-letter:nth-child(13) {
-          animation-delay: 0.96s;
+          .ui-anim-txt-1 .ui-anim-letter:nth-child(13),
+          .ui-anim-txt-2 .ui-anim-letter:nth-child(13) {
+            animation-delay: 0.96s;
+          }
         }
 
         /* Disabled */
