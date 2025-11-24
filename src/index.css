@@ -114,3 +114,15 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
+
+/* ElevenLabs widget stability fixes */
+elevenlabs-convai,
+elevenlabs-convai * {
+  transform: translateZ(0) !important;
+  -webkit-transform: translateZ(0) !important;
+  backface-visibility: hidden !important;
+  -webkit-backface-visibility: hidden !important;
+  will-change: transform !important;
+  perspective: 1000px !important;
+  -webkit-perspective: 1000px !important;
+}
