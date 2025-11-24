@@ -5,7 +5,6 @@ import { GetStartedButton } from "@/components/ui/get-started-button";
 export function GenerativeArtScene() {
   const mountRef = useRef<HTMLDivElement>(null);
   const lightRef = useRef<THREE.PointLight | null>(null);
-  const isVisibleRef = useRef<boolean>(true);
   
   useEffect(() => {
     const currentMount = mountRef.current;
@@ -127,15 +126,6 @@ export function GenerativeArtScene() {
     lightRef.current = pointLight;
     scene.add(pointLight);
     
-    // Intersection Observer to pause animation when not visible
-    const observer = new IntersectionObserver(
-      (entries) => {
-        isVisibleRef.current = entries[0].isIntersecting;
-      },
-      { threshold: 0.1 }
-    );
-    observer.observe(currentMount);
-    
     // Throttle animation on mobile (30 FPS instead of 60)
     let lastFrameTime = 0;
     const targetFPS = isMobile ? 30 : 60;
@@ -143,16 +133,13 @@ export function GenerativeArtScene() {
     
     let frameId: number;
     const animate = (t: number) => {
-      // Only animate if visible
-      if (isVisibleRef.current) {
-        // Throttle frame rate on mobile
-        if (t - lastFrameTime >= frameDuration) {
-          material.uniforms.time.value = t * 0.0003;
-          mesh.rotation.y += 0.0005;
-          mesh.rotation.x += 0.0002;
-          renderer.render(scene, camera);
-          lastFrameTime = t;
-        }
+      // Throttle frame rate on mobile
+      if (t - lastFrameTime >= frameDuration) {
+        material.uniforms.time.value = t * 0.0003;
+        mesh.rotation.y += 0.0005;
+        mesh.rotation.x += 0.0002;
+        renderer.render(scene, camera);
+        lastFrameTime = t;
       }
       frameId = requestAnimationFrame(animate);
     };
@@ -190,7 +177,6 @@ export function GenerativeArtScene() {
     }
     
     return () => {
-      observer.disconnect();
       cancelAnimationFrame(frameId);
       window.removeEventListener("resize", handleResize);
       if (!isMobile) {
