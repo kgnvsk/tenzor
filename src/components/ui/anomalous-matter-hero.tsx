@@ -5,8 +5,6 @@ import { GetStartedButton } from "@/components/ui/get-started-button";
 export function GenerativeArtScene() {
   const mountRef = useRef<HTMLDivElement>(null);
   const lightRef = useRef<THREE.PointLight | null>(null);
-  const isScrollingRef = useRef(false);
-  const scrollTimeoutRef = useRef<number | null>(null);
   
   useEffect(() => {
     const currentMount = mountRef.current;
@@ -128,16 +126,12 @@ export function GenerativeArtScene() {
     lightRef.current = pointLight;
     scene.add(pointLight);
     
-    // Optimized animation with scroll detection
+    // Constant smooth animation
     let frameId: number;
     const animate = () => {
-      // Reduce animation speed during scroll
-      const animationSpeed = isScrollingRef.current ? 0.0001 : 0.0003;
-      const rotationSpeed = isScrollingRef.current ? 0.0002 : 0.0005;
-      
-      material.uniforms.time.value = performance.now() * animationSpeed;
-      mesh.rotation.y += rotationSpeed;
-      mesh.rotation.x += rotationSpeed * 0.4;
+      material.uniforms.time.value = performance.now() * 0.0003;
+      mesh.rotation.y += 0.0005;
+      mesh.rotation.x += 0.0002;
       renderer.render(scene, camera);
       frameId = requestAnimationFrame(animate);
     };
@@ -146,19 +140,6 @@ export function GenerativeArtScene() {
       camera.aspect = currentMount.clientWidth / currentMount.clientHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(currentMount.clientWidth, currentMount.clientHeight);
-    };
-    
-    // Scroll detection for performance optimization
-    const handleScroll = () => {
-      isScrollingRef.current = true;
-      
-      if (scrollTimeoutRef.current) {
-        clearTimeout(scrollTimeoutRef.current);
-      }
-      
-      scrollTimeoutRef.current = window.setTimeout(() => {
-        isScrollingRef.current = false;
-      }, 150);
     };
     
     // Throttled mouse move handler (only on desktop)
@@ -184,7 +165,6 @@ export function GenerativeArtScene() {
     };
     
     window.addEventListener("resize", handleResize);
-    window.addEventListener("scroll", handleScroll, { passive: true });
     if (!isMobile) {
       window.addEventListener("mousemove", handleMouseMove);
     }
@@ -192,22 +172,22 @@ export function GenerativeArtScene() {
     return () => {
       cancelAnimationFrame(frameId);
       window.removeEventListener("resize", handleResize);
-      window.removeEventListener("scroll", handleScroll);
       if (!isMobile) {
         window.removeEventListener("mousemove", handleMouseMove);
       }
       if (mouseMoveThrottle) {
         clearTimeout(mouseMoveThrottle);
       }
-      if (scrollTimeoutRef.current) {
-        clearTimeout(scrollTimeoutRef.current);
-      }
       if (currentMount && renderer.domElement) {
         currentMount.removeChild(renderer.domElement);
       }
     };
   }, []);
-  return <div ref={mountRef} className="w-full h-full z-0" />;
+  return <div ref={mountRef} className="w-full h-full z-0" style={{ 
+    willChange: 'transform',
+    transform: 'translateZ(0)',
+    backfaceVisibility: 'hidden'
+  }} />;
 }
 export function AnomalousMatterHero({
   title = "Observation Log: Anomaly 7",
