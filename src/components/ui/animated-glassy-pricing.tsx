@@ -73,7 +73,9 @@ const ShaderCanvas = () => {
       }
       void main(){
         vec2 uv = gl_FragCoord.xy/iResolution.xy;
-        uv.x *= 1.5; uv.x -= 0.25;
+        float aspect = iResolution.x / iResolution.y;
+        uv.x *= aspect;
+        uv.x -= (aspect - 1.0) / 2.0;
         float mask = 0.0;
         float radius = .35;
         vec2 center = vec2(.5);
@@ -226,7 +228,7 @@ export const ModernPricingPage = ({
             {subtitle}
           </p>
         </div>
-        <div className="flex flex-col md:flex-row gap-8 md:gap-6 justify-center items-center w-full max-w-4xl">
+        <div className="flex flex-col md:flex-row gap-10 md:gap-6 justify-center items-stretch w-full max-w-4xl px-4">
           {plans.map((plan) => <PricingCard key={plan.planName} {...plan} />)}
         </div>
       </main>
