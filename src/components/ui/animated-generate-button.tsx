@@ -234,30 +234,32 @@ export default function AnimatedGenerateButton({
           filter: brightness(100%);
         }
 
-        /* Hover */
-        .ui-anim-btn:hover {
-          border-color: hsla(var(--highlight-hue), 100%, 80%, 0.4);
-        }
-        .ui-anim-btn:hover::before {
-          box-shadow:
-            0 -8px 8px -6px #fffa inset,
-            0 -16px 16px -8px var(--highlight-30) inset,
-            1px 1px 1px #fff2,
-            2px 2px 2px #fff1,
-            -1px -1px 1px #0002,
-            -2px -2px 2px #0001;
-        }
-        .ui-anim-btn:hover::after {
-          opacity: 1;
-          -webkit-mask-image: linear-gradient(0deg, #fff, transparent);
-          mask-image: linear-gradient(0deg, #fff, transparent);
-        }
-        .ui-anim-btn:hover .ui-anim-btn-svg {
-          stroke: #fff;
-          filter:
-            drop-shadow(0 0 3px var(--highlight))
-            drop-shadow(0 -4px 6px #0009);
-          animation: none;
+        /* Hover - only on desktop */
+        @media (hover: hover) and (pointer: fine) {
+          .ui-anim-btn:hover {
+            border-color: hsla(var(--highlight-hue), 100%, 80%, 0.4);
+          }
+          .ui-anim-btn:hover::before {
+            box-shadow:
+              0 -8px 8px -6px #fffa inset,
+              0 -16px 16px -8px var(--highlight-30) inset,
+              1px 1px 1px #fff2,
+              2px 2px 2px #fff1,
+              -1px -1px 1px #0002,
+              -2px -2px 2px #0001;
+          }
+          .ui-anim-btn:hover::after {
+            opacity: 1;
+            -webkit-mask-image: linear-gradient(0deg, #fff, transparent);
+            mask-image: linear-gradient(0deg, #fff, transparent);
+          }
+          .ui-anim-btn:hover .ui-anim-btn-svg {
+            stroke: #fff;
+            filter:
+              drop-shadow(0 0 3px var(--highlight))
+              drop-shadow(0 -4px 6px #0009);
+            animation: none;
+          }
         }
 
         /* Active - disabled on mobile and tablets, only on desktop */
