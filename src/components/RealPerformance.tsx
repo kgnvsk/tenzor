@@ -15,9 +15,8 @@ export function RealPerformance() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setIsVisible(true);
-          } else {
-            setIsVisible(false);
           }
+          // Не сбрасываем isVisible в false - анимация запускается только один раз
         });
       },
       { threshold: 0.3 }
