@@ -260,29 +260,31 @@ export default function AnimatedGenerateButton({
           animation: none;
         }
 
-        /* Active */
-        .ui-anim-btn:active {
-          border-color: hsla(var(--highlight-hue), 100%, 80%, 0.7);
-          background-color: hsla(var(--highlight-hue), 50%, 20%, 0.5);
-        }
-        .ui-anim-btn:active::before {
-          box-shadow:
-            0 -8px 12px -6px #fffa inset,
-            0 -16px 16px -8px var(--highlight-80) inset,
-            1px 1px 1px #fff4,
-            2px 2px 2px #fff2,
-            -1px -1px 1px #0002,
-            -2px -2px 2px #0001;
-        }
-        .ui-anim-btn:active::after {
-          opacity: 1;
-          -webkit-mask-image: linear-gradient(0deg, #fff, transparent);
-          mask-image: linear-gradient(0deg, #fff, transparent);
-          filter: brightness(200%);
-        }
-        .ui-anim-btn:active .ui-anim-letter {
-          text-shadow: 0 0 1px hsla(var(--highlight-hue), 100%, 90%, 0.9);
-          animation: none;
+        /* Active - disabled on mobile */
+        @media (min-width: 768px) {
+          .ui-anim-btn:active {
+            border-color: hsla(var(--highlight-hue), 100%, 80%, 0.7);
+            background-color: hsla(var(--highlight-hue), 50%, 20%, 0.5);
+          }
+          .ui-anim-btn:active::before {
+            box-shadow:
+              0 -8px 12px -6px #fffa inset,
+              0 -16px 16px -8px var(--highlight-80) inset,
+              1px 1px 1px #fff4,
+              2px 2px 2px #fff2,
+              -1px -1px 1px #0002,
+              -2px -2px 2px #0001;
+          }
+          .ui-anim-btn:active::after {
+            opacity: 1;
+            -webkit-mask-image: linear-gradient(0deg, #fff, transparent);
+            mask-image: linear-gradient(0deg, #fff, transparent);
+            filter: brightness(200%);
+          }
+          .ui-anim-btn:active .ui-anim-letter {
+            text-shadow: 0 0 1px hsla(var(--highlight-hue), 100%, 90%, 0.9);
+            animation: none;
+          }
         }
 
         /* Letter stagger delays 1:1 */
