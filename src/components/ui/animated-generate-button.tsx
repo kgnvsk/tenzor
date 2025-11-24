@@ -97,6 +97,9 @@ export default function AnimatedGenerateButton({
           --highlight-20: hsla(var(--highlight-hue), 100%, 70%, 0.2);
           --highlight-80: hsla(var(--highlight-hue), 100%, 70%, 0.8);
           --ui-anim-svg-fill: #e8e8e8;
+          will-change: transform, opacity;
+          transform: translateZ(0);
+          backface-visibility: hidden;
         }
 
         .ui-anim-btn::before {
@@ -137,6 +140,8 @@ export default function AnimatedGenerateButton({
           color: #ffffff88;
           animation: ui-letter-anim 2s ease-in-out infinite;
           transition: color var(--transition), text-shadow var(--transition), opacity var(--transition);
+          will-change: transform, opacity, filter;
+          transform: translateZ(0);
         }
 
         @keyframes ui-letter-anim {
