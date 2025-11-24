@@ -10,26 +10,30 @@ export function GenerativeArtScene() {
     const currentMount = mountRef.current;
     if (!currentMount) return;
     
-    // Mobile detection for mouse move optimization only
+    // Disable 3D scene on mobile for iOS performance
     const isMobile = window.innerWidth <= 768;
+    if (isMobile) {
+      // Show simple gradient fallback on mobile
+      currentMount.style.background = 'radial-gradient(circle at center, hsl(var(--accent) / 0.2), transparent)';
+      return;
+    }
     
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, currentMount.clientWidth / currentMount.clientHeight, 0.1, 1000);
     camera.position.z = 3;
     const renderer = new THREE.WebGLRenderer({
-      antialias: true,
+      antialias: false, // Disable for performance
       alpha: true,
       powerPreference: "high-performance",
       preserveDrawingBuffer: false,
-      failIfMajorPerformanceCaveat: false
+      failIfMajorPerformanceCaveat: true
     });
     renderer.setSize(currentMount.clientWidth, currentMount.clientHeight);
-    // Standard pixel ratio for all devices
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(1); // Force 1x pixel ratio on all devices for performance
     currentMount.appendChild(renderer.domElement);
     
-    // Standard geometry complexity for all devices
-    const geometry = new THREE.IcosahedronGeometry(1.2, 48);
+    // Simplified geometry for better performance
+    const geometry = new THREE.IcosahedronGeometry(1.2, 24); // Reduced from 48 to 24
     const material = new THREE.ShaderMaterial({
       uniforms: {
         time: {

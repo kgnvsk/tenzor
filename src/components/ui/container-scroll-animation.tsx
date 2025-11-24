@@ -30,10 +30,10 @@ export const ContainerScroll = ({
     return isMobile ? [0.85, 0.95] : [1.05, 1];
   };
 
-  // Reduce animation intensity on mobile for better performance
-  const rotate = useTransform(scrollYProgress, [0, 1], isMobile ? [10, 0] : [20, 0]);
-  const scale = useTransform(scrollYProgress, [0, 1], scaleDimensions());
-  const translate = useTransform(scrollYProgress, [0, 1], isMobile ? [0, -50] : [0, -100]);
+  // Disable animations completely on mobile for performance (iOS optimization)
+  const rotate = useTransform(scrollYProgress, [0, 1], isMobile ? [0, 0] : [20, 0]);
+  const scale = useTransform(scrollYProgress, [0, 1], isMobile ? [1, 1] : scaleDimensions());
+  const translate = useTransform(scrollYProgress, [0, 1], isMobile ? [0, 0] : [0, -100]);
 
   return (
     <div
