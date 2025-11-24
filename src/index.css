@@ -126,3 +126,48 @@ elevenlabs-convai * {
   perspective: 1000px !important;
   -webkit-perspective: 1000px !important;
 }
+
+/* Mobile Performance Optimization for iOS/iPhone */
+@media (max-width: 768px) {
+  /* 1. Disable all glassmorphism effects on mobile */
+  * {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* Replace glass effect with solid backgrounds */
+  .bg-muted\/30,
+  .bg-muted\/70,
+  .bg-card\/50 {
+    background: hsl(var(--muted) / 0.95) !important;
+  }
+
+  /* 2. Force hardware acceleration for scrollable containers */
+  body,
+  main,
+  section,
+  [class*="scroll"],
+  [class*="animate"] {
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+  }
+
+  /* 3. Disable complex animations and transitions on mobile */
+  [class*="transition-all"],
+  [class*="duration-"] {
+    transition: none !important;
+  }
+
+  /* Keep only essential opacity transitions */
+  [class*="hover:"],
+  [class*="group-hover:"] {
+    transition: opacity 0.2s ease !important;
+  }
+
+  /* Disable parallax and scroll-linked animations */
+  [style*="translateY"],
+  [style*="rotateX"],
+  [style*="scale"] {
+    transform: none !important;
+  }
+}
