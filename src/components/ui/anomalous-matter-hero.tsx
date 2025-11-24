@@ -213,7 +213,7 @@ export function AnomalousMatterHero({
         {/* Left side - Text content */}
         <div className="w-full lg:w-1/2 h-auto lg:h-full flex flex-col justify-center px-6 md:px-16 lg:px-24 z-20">
           {/* Title section - order 1 on mobile */}
-          <div className="max-w-2xl animate-fade-in order-1">
+          <div className="max-w-2xl animate-fade-in order-1 text-center md:text-left">
             <h1 className="text-xs md:text-sm font-mono tracking-widest text-accent/80 uppercase mb-4 md:mb-6">
               {title}
             </h1>
