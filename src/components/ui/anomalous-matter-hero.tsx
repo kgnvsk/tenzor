@@ -19,7 +19,9 @@ export function GenerativeArtScene() {
     const renderer = new THREE.WebGLRenderer({
       antialias: true,
       alpha: true,
-      powerPreference: "high-performance"
+      powerPreference: "high-performance",
+      preserveDrawingBuffer: false,
+      failIfMajorPerformanceCaveat: false
     });
     renderer.setSize(currentMount.clientWidth, currentMount.clientHeight);
     // Standard pixel ratio for all devices
@@ -183,11 +185,19 @@ export function GenerativeArtScene() {
       }
     };
   }, []);
-  return <div ref={mountRef} className="w-full h-full z-0" style={{ 
-    willChange: 'transform',
-    transform: 'translateZ(0)',
-    backfaceVisibility: 'hidden'
-  }} />;
+  return <div 
+    ref={mountRef} 
+    className="w-full h-full z-0" 
+    style={{ 
+      willChange: 'transform',
+      transform: 'translateZ(0)',
+      WebkitTransform: 'translateZ(0)',
+      backfaceVisibility: 'hidden',
+      WebkitBackfaceVisibility: 'hidden',
+      perspective: 1000,
+      WebkitPerspective: 1000
+    }} 
+  />;
 }
 export function AnomalousMatterHero({
   title = "Observation Log: Anomaly 7",
