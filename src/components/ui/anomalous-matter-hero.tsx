@@ -10,24 +10,24 @@ export function GenerativeArtScene() {
     const currentMount = mountRef.current;
     if (!currentMount) return;
     
-    // Mobile detection for performance optimization
+    // Mobile detection for mouse move optimization only
     const isMobile = window.innerWidth <= 768;
     
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, currentMount.clientWidth / currentMount.clientHeight, 0.1, 1000);
     camera.position.z = 3;
     const renderer = new THREE.WebGLRenderer({
-      antialias: false,
+      antialias: true,
       alpha: true,
       powerPreference: "high-performance"
     });
     renderer.setSize(currentMount.clientWidth, currentMount.clientHeight);
-    // Lower pixel ratio for better performance
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1 : 1.5));
+    // Standard pixel ratio for all devices
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     currentMount.appendChild(renderer.domElement);
     
-    // Reduce geometry complexity on mobile (32 vs 48 segments)
-    const geometry = new THREE.IcosahedronGeometry(1.2, isMobile ? 32 : 48);
+    // Standard geometry complexity for all devices
+    const geometry = new THREE.IcosahedronGeometry(1.2, 48);
     const material = new THREE.ShaderMaterial({
       uniforms: {
         time: {
@@ -126,24 +126,16 @@ export function GenerativeArtScene() {
     lightRef.current = pointLight;
     scene.add(pointLight);
     
-    // Throttle animation on mobile (30 FPS instead of 60)
-    let lastFrameTime = 0;
-    const targetFPS = isMobile ? 30 : 60;
-    const frameDuration = 1000 / targetFPS;
-    
+    // Standard 60 FPS for all devices
     let frameId: number;
-    const animate = (t: number) => {
-      // Throttle frame rate on mobile
-      if (t - lastFrameTime >= frameDuration) {
-        material.uniforms.time.value = t * 0.0003;
-        mesh.rotation.y += 0.0005;
-        mesh.rotation.x += 0.0002;
-        renderer.render(scene, camera);
-        lastFrameTime = t;
-      }
+    const animate = () => {
+      material.uniforms.time.value = performance.now() * 0.0003;
+      mesh.rotation.y += 0.0005;
+      mesh.rotation.x += 0.0002;
+      renderer.render(scene, camera);
       frameId = requestAnimationFrame(animate);
     };
-    animate(0);
+    animate();
     const handleResize = () => {
       camera.aspect = currentMount.clientWidth / currentMount.clientHeight;
       camera.updateProjectionMatrix();
